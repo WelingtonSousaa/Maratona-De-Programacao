@@ -1,0 +1,8 @@
+header {
+  & > #volta {
+    width: 5rem;
+    color: white;
+    background-color: rgb(50, 124, 198);
+    text-align: center;
+  }
+}
