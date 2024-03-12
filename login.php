@@ -1,5 +1,5 @@
 <?php
-  include 'conexao.php'; // Inclua o arquivo de conexão
+
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +29,16 @@
       Uma plataforma de interação para hospedar competições e desafios de
       programação
     </p>
-    <form action="processa_login.php" method="POST" id="form">
-      <label for="userName">Nome de usuário</label>
+    <form action="" id="form">
+      <label for="userName"> Nome de usuário</label>
       <p id="msgErroName" hidden></p>
       <input name="userName" id="userName" type="text" placeholder="Digite seu Nome de usuário" />
-      <label for="password">Senha</label>
+      <label for="password"> Senha</label>
       <p id="msgErroPassword" hidden></p>
-      <input type="password" name="password" id="password" placeholder="Digite sua senha" />
-      <button type="submit" id="entrar">Entrar</button>
+      <input type="password" id="password" placeholder="Digite sua senha" />
+      <button type="submit" id="entrar" onclick="RevisaNomeESenha(event)">
+        Entrar
+      </button>
       <p>ou</p>
       <a href="cadastro.php">Cadastrar-se</a>
     </form>
