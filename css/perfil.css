@@ -1,0 +1,36 @@
+#perfil {
+  background-color: rgb(80, 78, 81);
+  height: 43rem;
+  width: 20rem;
+  margin: auto;
+  border-radius: 2rem;
+}
+#infor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#imgUsuario {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 3rem;
+}
+#opcoes {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+.botoes {
+  background-color: rgb(80, 78, 81);
+  border: none;
+  height: 3rem;
+  width: 80%;
+  text-align: left;
+  padding-left: 0.5rem;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+    background-color: rgba(165, 160, 160, 0.573);
+  }
+}
