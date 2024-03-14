@@ -1,6 +1,40 @@
-
 <?php
+    session_start(); // Inicia a sessão
 
+    include 'conexao.php';
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nome_usuario = $_POST['userName'];
+        $senha = $_POST['password'];
+
+        $sql = "SELECT * FROM usuarios WHERE nome_usuario = '$nome_usuario'";
+        $result = $conexao->query($sql);
+        // Caso senha com criptografia
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($senha, $row['senha'])) {
+                $_SESSION['nome_usuario'] = $nome_usuario;
+                echo "<script>alert('Login realizado com sucesso!');</script>";
+                // Redireciona para a página principal, por exemplo:
+                // header("Location: index.php");
+            } else {
+                echo "<script>alert('Nome de usuário ou senha incorretos. Tente novamente.');</script>";
+            }
+        } else {
+            echo "<script>alert('Nome de usuário ou senha incorretos. Tente novamente.');</script>";
+        }
+        // Caso senha sem criptografia   
+        /*
+        if ($result->num_rows > 0) {
+          $_SESSION['nome_usuario'] = $nome_usuario;
+          echo "<script>alert('Login realizado com sucesso!');</script>";
+          // Redireciona para a página principal, por exemplo:
+          // header("Location: index.php");
+      } else {
+          echo "<script>alert('Nome de usuário ou senha incorretos. Tente novamente.');</script>";
+      }
+      */
+    }
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +69,7 @@
         Uma plataforma de interação para hospedar competições e desafios de
         programação
       </p>
-      <form action="" id="form">
+      <form action="" method="POST" id="form">  <!--adicionei o método POST-->
         <label for="userName"> Nome de usuário</label>
         <p id="msgErroName" hidden></p>
         <input
@@ -46,10 +80,8 @@
         />
         <label for="password"> Senha</label>
         <p id="msgErroPassword" hidden></p>
-        <input type="password" id="password" placeholder="Digite sua senha" />
-        <button type="submit" id="entrar" onclick="RevisaNomeESenha(event)">
-          Entrar
-        </button>
+        <input type="password" name="password" id="password" placeholder="Digite sua senha" />
+        <button type="submit" id="entrar">Entrar</button>
         <p>ou</p>
         <a href="cadastro.php">Cadastrar-se</a>
       </form>
