@@ -1,6 +1,6 @@
 
 <?php
-  include 'conexao.php'; // Inclua o arquivo de conexão
+  include 'conexao.php';
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nome = $_POST['name'];
