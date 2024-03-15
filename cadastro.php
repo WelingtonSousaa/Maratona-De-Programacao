@@ -15,6 +15,7 @@
           echo "Cadastro realizado com sucesso!";
       } else {
           echo "Erro ao cadastrar: " . $conexao->error;
+          //teste
       }
   }
   ?>
