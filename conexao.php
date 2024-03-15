@@ -12,7 +12,7 @@
         echo "Erro ao conectar";
     } else {
         echo "Conexão efetuada com sucesso!";
-    } adasdadasd
+    }
     */
 
 ?>
