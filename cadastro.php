@@ -1,12 +1,13 @@
 
 <?php
-  include 'conexao.php'; // Inclua o arquivo de conexão
+  include 'conexao.php';
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $nome = $_POST['name'];
       $email = $_POST['email'];
       $nome_usuario = $_POST['userName'];
-      $senha = password_hash($_POST['password'], PASSWORD_DEFAULT); // Criptografa a senha
+      // $senha = $_POST['password']; // Senha sem criptografia
+      $senha = password_hash($_POST['password'], PASSWORD_DEFAULT); // Senha criptografada
   
       $sql = "INSERT INTO usuarios (nome_completo, email, nome_usuario, senha) VALUES ('$nome', '$email', '$nome_usuario', '$senha')";
   
