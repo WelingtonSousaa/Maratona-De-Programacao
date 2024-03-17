@@ -1,9 +1,5 @@
-const global = document.getElementById("global");
-
-let contador = 1;
 function MyMaratona() {
-  if (contador === 1) {
-    const newHtml = ` <div  class="maratona">
+  const newHtml = ` <div  class="maratona">
     <img src="img/image.png" alt="" id="escudo">
     <div id="texto">
       <p id="nomeMaratona"><strong>maratona das capivaras</strong></p>
@@ -15,10 +11,5 @@ function MyMaratona() {
     <p>crie um nova maratona</p>
      </div>`;
 
-    global.innerHTML = newHtml;
-    contador = 2;
-  } else {
-    global.innerHTML = "";
-    contador = 1;
-  }
+  global.innerHTML = newHtml;
 }
