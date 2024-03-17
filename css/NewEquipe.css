@@ -1,9 +1,12 @@
 #novaEquipe {
   border-radius: 2rem;
   background-color: rgb(214, 133, 27);
+  width: 80rem;
+  padding: 2rem;
 
   & > form {
     display: flex;
+    flex-direction: column;
     & > div {
       display: flex;
       flex-direction: column;
@@ -27,6 +30,7 @@
     }
   }
 }
+
 #escudos {
   background-color: white;
   width: 50rem;
@@ -53,10 +57,4 @@
   border-radius: 2rem;
   color: white;
   background-color: rgba(0, 128, 0, 0.779);
-}
-#EscolhaEscudo:hover + #escudos {
-  display: block;
-}
-#EscolhaEscudo:hover {
-  border-radius: 2rem 2rem 0 0;
 }
