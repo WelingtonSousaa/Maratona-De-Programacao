@@ -1,0 +1,10 @@
+#novaEquipe {
+  padding: 2rem;
+  width: 80rem;
+  background-color: aliceblue;
+
+  & > form {
+    display: flex;
+    flex-direction: column;
+  }
+}

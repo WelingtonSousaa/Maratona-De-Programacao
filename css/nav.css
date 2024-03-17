@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0%;
+}
+
+nav {
+  padding-bottom: 0.5rem;
+  width: 100%;
+  background-color: rgb(236, 156, 9);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#logo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+#imgUsuario {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+}
+.dropdown-menu {
+  padding: 0.3rem;
+  margin-left: 88%;
+  border-radius: 1rem;
+  position: absolute;
+  background-color: rgb(58, 56, 56);
+  flex-direction: column;
+  align-items: flex-start;
+  display: none;
+}
+.opcao {
+  display: flex;
+  gap: 0.5rem;
+  border: none;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  color: white;
+  background-color: rgb(58, 56, 56);
+  text-decoration: none;
+  &:hover {
+    background-color: rgb(39, 38, 38);
+    border-radius: 0.5rem;
+  }
+}
+.zonaVermelha:hover {
+  color: red;
+}
