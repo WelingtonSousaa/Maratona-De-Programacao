@@ -1,0 +1,59 @@
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(128, 128, 128, 0.105);
+}
+div {
+  padding: 1rem;
+  margin: auto;
+  margin-top: 3rem;
+  height: 100%;
+  width: 80%;
+  border-radius: 2rem;
+  background-color: white;
+}
+h1 {
+  padding: 0.5rem;
+  text-align: center;
+}
+#escolhaAvatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  & > img {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 100%;
+  }
+}
+p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.avatar {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.avatar:not(.avatarSelecionado):hover {
+  border: 5px solid red;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.avatarSelecionado {
+  border: 3px solid green;
+  transform: scale(1.1);
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+}

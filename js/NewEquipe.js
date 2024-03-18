@@ -12,7 +12,6 @@ function MostarEscudos() {
 }
 
 function selecionarImagem(elemento) {
-  console.log("entrou");
   const imagens = document.querySelectorAll("#escudos img");
   imagens.forEach((img) => img.classList.remove("escudoSelecionado"));
 
