@@ -1,6 +1,6 @@
 window.onload = function () {
     var avatarGrid = document.getElementById("avatarGrid");
-
+ 
     // Adicionar as imagens dinamicamente usando um loop de 1 a 20
     for (var i = 1; i <= 20; i++) {
         var img = document.createElement("img");
