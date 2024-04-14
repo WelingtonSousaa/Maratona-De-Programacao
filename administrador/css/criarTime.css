@@ -31,7 +31,6 @@
   border-radius: 2rem;
 
   & > span {
-    background-color: white;
     height: 2rem;
     width: 2rem;
     border-radius: 100%;
@@ -40,17 +39,25 @@
 #conteinerMensagem {
   height: 100%;
   width: 40%;
-  background-color: #6b80c9;
+  background-color: #512da8;
+  background: linear-gradient(to right, #5c6bc0, #512da8);
   border-radius: 0 2rem 2rem 0;
 }
 
 form {
   margin: auto;
+  text-align: center;
 
   & > div {
+    text-align: left;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
+    & > label {
+      margin-left: 1rem;
+      font-size: 20px;
+      font-weight: 600;
+    }
 
     & > input {
       height: 3rem;
@@ -62,16 +69,30 @@ form {
     }
   }
   & > button {
-    height: 2rem;
     width: 10rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
     color: white;
     font-weight: 600;
     background-color: #543dae;
-    border: none;
-    padding: 1rem 0 1rem 0;
   }
 }
 #ultimaDiv {
   border-bottom: solid black 1px;
   padding-bottom: 2rem;
+}
+
+.concluido {
+  background-image: url(https://icon-library.com/images/confirmed-icon/confirmed-icon-3.jpg);
+  background-size: cover;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+.andamento {
+  background-color: white;
+}
+.proximos {
+  background-color: #221847;
 }
