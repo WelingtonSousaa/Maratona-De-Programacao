@@ -23,8 +23,8 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
     overflow: hidden;
-    width: 1000px;
-    height: 600px;
+    width: 900px;
+    height: 500px;
     max-width: 100%;
     min-height: 480px;
 }
@@ -61,7 +61,7 @@ body {
     cursor: pointer;
 }
 
-.container button.hidden {
+.container button.esconder {
     background-color: transparent;
     border-color: #fff;
 }
@@ -94,24 +94,24 @@ body {
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in {
+.criar-conta{
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.active .sign-in {
+.container.active .criar-conta{
     transform: translateX(100%);
 }
 
-.sign-up {
+.escolher-avatar {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.active .sign-up {
+.container.active .escolher-avatar {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -148,7 +148,7 @@ body {
     height: 40px;
 }
 
-.toggle-container {
+.alternar-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -160,12 +160,12 @@ body {
     z-index: 1000;
 }
 
-.container.active .toggle-container {
+.container.active .alternar-container {
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
 
-.toggle {
+.alternar {
     background-color: #512da8;
     height: 100%;
     background: linear-gradient(to right, #5c6bc0, #512da8);
@@ -178,11 +178,11 @@ body {
     transition: all 0.6s ease-in-out;
 }
 
-.container.active .toggle {
+.container.active .alternar {
     transform: translateX(50%);
 }
 
-.toggle-panel {
+.alternar-panel {
     position: absolute;
     width: 50%;
     height: 100%;
@@ -197,30 +197,32 @@ body {
     transition: all 0.6s ease-in-out;
 }
 
-.toggle-left {
+.alternar-esquerda {
     transform: translateX(-200%);
 }
 
-.container.active .toggle-left {
+.container.active .alternar-esquerda {
     transform: translateX(0);
 }
 
-.toggle-right {
+.alternar-direita {
     right: 0;
     transform: translateX(0);
 }
 
-.container.active .toggle-right {
+.container.active .alternar-direita {
     transform: translateX(200%);
 }
 
 
-.avatar-grid {
+.grade-avatar {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
     overflow-x: auto;
     width: 100%;
+    padding: 10px;
+
 
     &>img:hover {
         transform: scale(1.3);
@@ -228,14 +230,14 @@ body {
     }
 }
 
-.avatar-grid>div {
+.grade-avatar>div {
     width: 100px;
     height: 100px;
     border-radius: 40%;
     overflow: hidden;
 }
 
-.avatar-grid img {
+.grade-avatar img {
     width: 100%;
     height: 100%;
     border-radius: 40%;
