@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/criarTime.css">
+
     <link rel="stylesheet" href="css/principal.css" />
     <link
       rel="stylesheet"
@@ -17,17 +19,41 @@
         <li>
           <p><strong>NOME DO SITE</strong></p>
         </li>
-        <li><button class="navBotoes">Times</button></li>
-        <li><button class="navBotoes">Maratonas</button></li>
+
+        <li>
+          <button class="navBotoes" onclick="aparecerMenu('timesDropdown')">
+            Times
+          </button>
+          <div id="timesDropdown" class="drop-menu">
+            <button>Criar times</button>
+            <button>Gerenciar times</button>
+            <button>Buscar time</button>
+          </div>
+        </li>
+
+        <li>
+          <button class="navBotoes" onclick="aparecerMenu('maratonasDropdown')">
+            Maratonas
+          </button>
+          <div id="maratonasDropdown" class="drop-menu">
+            <button>Criar maratona</button>
+            <button>Gerenciar maratona</button>
+            <button>Buscar maratona</button>
+          </div>
+        </li>
+
         <li><button class="navBotoes">Ranking</button></li>
+
         <li><button class="navBotoes">comunidade</button></li>
+
         <li>
           <img src="img/unnamed.jpg" alt="Imagem do usuario" id="imgUsuario" />
         </li>
       </ul>
     </nav>
     <div id="global">
-      <div id="principal">
+      <!-- <div id="principal">
+
         <h1 id="boasVindas">Bem-vindo ao nosso site!</h1>
         <div id="conteiner">
           <p>
@@ -48,7 +74,7 @@
           </div>
 
           <div class="opcao">
-            <img src="img/imagem criar time em jpeg.jpeg" alt="" />
+            <img src="img/gerenciartime.jpeg" alt="" />
             <p>Gerenciar times</p>
           </div>
 
@@ -63,16 +89,50 @@
           </div>
 
           <div class="opcao">
-            <img src="img/imagem criar time em jpeg.jpeg" alt="" />
+            <img src="img/image.png" alt="" />
             <p>Gerenciar partidas</p>
           </div>
 
           <div class="opcao">
-            <img src="img/imagem criar time em jpeg.jpeg" alt="" />
+            <img src="img/editarPerfil.jpeg" alt="" />
             <p>Editar Usuário</p>
           </div>
         </div>
       </div>
+    </div> -->
+    <div id="criarTime">
+      <div id="conteinerPassos">
+        <div>
+          <div id="passos">
+            <p>Dados</p>
+            <p>Participantes</p>
+            <p>Escudos</p>
+            <p>Concluído</p>
+  
+          </div>
+          <div id="progresso">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div id="conteinerMensagem">
+      </div>
+      <form action="">
+        <div> <label for="nomeTime">Nome da Equipe:</label>
+         <input type="text" name="nomeTime" id="inputNomeTime" placeholder="Exemplo nome">
+       </div >
+         <div id="ultimaDiv"> <label for="abreviacaoTime">Abreviação do time:</label>
+           <input type="text" name="abreviacaoTime" id="inputAbreviacaoTime" placeholder="EXN">
+       </div>
+       
+       <button>PROSSEGIR</button>
+
+       </form>
+      
     </div>
+    <script src="js/main.js"></script>
   </body>
 </html>

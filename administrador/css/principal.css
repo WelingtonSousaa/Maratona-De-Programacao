@@ -2,12 +2,17 @@
   margin-top: 3rem;
   text-align: center;
   font-size: 4rem;
+  color: white;
 }
 #conteiner {
   width: 40rem;
   border-radius: 2rem;
   padding: 2rem 2rem 4rem 2rem;
-  background-color: gray;
+  color: white;
+  background-image: url("/administrador/img/OIG3.Sf7rIzHA.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
   margin: auto;
   & > p {
     font-size: 1.5rem;
@@ -23,7 +28,6 @@
     font-size: 1rem;
     font-weight: 600;
     padding: 0.5rem;
-    background-color: white;
     border-radius: 2rem;
   }
 }
@@ -31,6 +35,7 @@ h2 {
   text-align: center;
   font-size: 2rem;
   margin: 2rem;
+  color: white;
 }
 #Opcoes {
   display: flex;
@@ -38,15 +43,16 @@ h2 {
   gap: 3rem;
 }
 .opcao {
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+  color: white;
   width: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 
   & > img {
     height: 4rem;
