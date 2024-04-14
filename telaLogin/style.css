@@ -1,28 +1,29 @@
-*{
-   margin: 0%;
-   padding: 0%;
-   box-sizing: border-box;
-   }
-   body {
-     width: 100vw;
-     height: 100vh;
-     background-color: #f4faf9;
-   }
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4faf9;
+}
 
 .login-container {
-   margin: auto;
-   border-radius: 30px;
-   padding: 20px;
-   width: fit-content;
+  margin: auto;
+  border-radius: 30px;
+  padding: 20px;
+  width: fit-content;
 }
 
 form {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-input[type=email],
-input[type=password] {
-   padding: 10px;
-   margin-bottom: 10px;
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
 }
