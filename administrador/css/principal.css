@@ -1,0 +1,59 @@
+#boasVindas {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 4rem;
+}
+#conteiner {
+  width: 40rem;
+  border-radius: 2rem;
+  padding: 2rem 2rem 4rem 2rem;
+  background-color: gray;
+  margin: auto;
+  & > p {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+}
+#conteinerBotoes {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  & > button {
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 2rem;
+  }
+}
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem;
+}
+#Opcoes {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+.opcao {
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+
+  & > img {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1rem;
+  }
+  & > p {
+    font-weight: 600;
+  }
+}
