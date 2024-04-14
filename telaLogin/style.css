@@ -166,8 +166,8 @@ body {
 }
 
 .alternar {
-    background-color: #512da8;
     height: 100%;
+    background-color: #512da8;
     background: linear-gradient(to right, #5c6bc0, #512da8);
     color: #fff;
     position: relative;
@@ -186,6 +186,8 @@ body {
     position: absolute;
     width: 50%;
     height: 100%;
+    background-color: #512da8;
+    background: linear-gradient(to right, #5c6bc0, #512da8);
     display: flex;
     align-items: center;
     justify-content: center;
