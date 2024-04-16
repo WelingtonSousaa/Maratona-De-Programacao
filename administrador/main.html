@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site</title>
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/criarTime.css">
+    <link rel="stylesheet" href="css/criarTime.css" />
 
     <link rel="stylesheet" href="css/principal.css" />
     <link
@@ -17,7 +17,7 @@
     <nav id="navegacao">
       <ul>
         <li>
-          <p><strong>NOME DO SITE</strong></p>
+          <p onclick="retornaPagPrincipal()"><strong>NOME DO SITE</strong></p>
         </li>
 
         <li>
@@ -25,7 +25,7 @@
             Times
           </button>
           <div id="timesDropdown" class="drop-menu">
-            <button>Criar times</button>
+            <button onclick="retornaPagCriarTime()">Criar times</button>
             <button>Gerenciar times</button>
             <button>Buscar time</button>
           </div>
@@ -52,8 +52,7 @@
       </ul>
     </nav>
     <div id="global">
-      <!-- <div id="principal">
-
+      <div id="principal">
         <h1 id="boasVindas">Bem-vindo ao nosso site!</h1>
         <div id="conteiner">
           <p>
@@ -63,12 +62,12 @@
           <div id="conteinerBotoes">
             <button>criar uma maratona</button>
 
-            <button>criar um time</button>
+            <button onclick="retornaPagCriarTime()">criar um time</button>
           </div>
         </div>
         <h2>Inicie sua jornada em site</h2>
         <div id="Opcoes">
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagCriarTime()">
             <img src="img/imagem criar time em jpeg.jpeg" alt="" />
             <p>Criar um time</p>
           </div>
@@ -99,40 +98,11 @@
           </div>
         </div>
       </div>
-    </div> -->
-    <div id="criarTime">
-      <div id="conteinerPassos">
-        <div>
-          <div id="passos">
-            <p>Dados</p>
-            <p>Participantes</p>
-            <p>Escudos</p>
-            <p>Concluído</p>
-  
-          </div>
-          <div id="progresso">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-      <div id="conteinerMensagem">
-      </div>
-      <form action="">
-        <div> <label for="nomeTime">Nome da Equipe:</label>
-         <input type="text" name="nomeTime" id="inputNomeTime" placeholder="Exemplo nome">
-       </div >
-         <div id="ultimaDiv"> <label for="abreviacaoTime">Abreviação do time:</label>
-           <input type="text" name="abreviacaoTime" id="inputAbreviacaoTime" placeholder="EXN">
-       </div>
-       
-       <button>PROSSEGIR</button>
-
-       </form>
+    </div>
       
     </div>
     <script src="js/main.js"></script>
+    <script src="js/CriarTime.js"></script>
+   <script src="paginas/PagPrincipal.js"></script>
   </body>
 </html>

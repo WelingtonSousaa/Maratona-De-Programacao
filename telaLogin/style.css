@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -43,4 +44,34 @@ body {
     width: 70%;
     outline: none;
     
+=======
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f4faf9;
+}
+
+.login-container {
+  margin: auto;
+  border-radius: 30px;
+  padding: 20px;
+  width: fit-content;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
+>>>>>>> 5eb6537209b91555cf45103df3ee71b18ee31642
 }
