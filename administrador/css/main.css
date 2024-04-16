@@ -31,6 +31,12 @@ body {
   font-size: 1rem;
   background-color: transparent;
   font-weight: 600;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: solid transparent 2px;
+  &:hover {
+    border: solid black 2px;
+  }
 }
 #imgUsuario {
   height: 2rem;
@@ -57,5 +63,6 @@ body {
     padding: 0.2rem;
     border: none;
     border-bottom: solid rgb(45, 43, 43) 1px;
+    color: white;
   }
 }
