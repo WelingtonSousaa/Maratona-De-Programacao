@@ -39,8 +39,15 @@
     border-radius: 100%;
   }
 }
+
 #conteinerCriaTime {
   margin: auto;
+
+  & > h2 {
+    width: 30rem;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+  }
 }
 #conteinerMensagem {
   height: 100%;
@@ -92,11 +99,13 @@ form {
   }
 }
 .voltar {
+  cursor: pointer;
   border: none;
   background-color: transparent;
   font-size: 1rem;
 }
 .prossegir {
+  cursor: pointer;
   width: 10rem;
   padding: 1rem;
   border: none;
@@ -133,13 +142,15 @@ form {
   max-height: 20rem;
   grid-gap: 1rem;
   padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  margin: 4rem 5rem 2rem 0;
   border-bottom: solid black 1px;
   overflow: scroll;
 }
 .usuario {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  border: 2px solid transparent;
   align-items: center;
   background-color: white;
   padding: 0.5rem;
@@ -169,4 +180,39 @@ form {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 5rem 0 2rem;
+}
+#escudos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: scroll;
+  max-height: 20rem;
+  grid-gap: 1rem;
+  margin: 4rem 5rem 5rem 0;
+  padding: 1rem;
+}
+.escudo {
+  cursor: pointer;
+
+  &:not(.selecionado) {
+    border: 2px solid transparent;
+  }
+  & > img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 1rem;
+  }
+  &:hover:not(.selecionado) {
+    border: solid orange 2px;
+  }
+}
+#concluir {
+  cursor: pointer;
+  width: 10rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-weight: 600;
+  background-color: #543dae;
 }
