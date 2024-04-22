@@ -1,0 +1,218 @@
+#criarTime {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 3rem;
+  height: 35rem;
+  width: 80%;
+  background-color: rgba(128, 128, 128, 0.612);
+  border-radius: 2rem;
+}
+
+#conteinerPassos {
+  margin: 1rem 0 0 3rem;
+  position: absolute;
+  width: 70%;
+}
+#passos {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  padding: 0 1rem 0 1rem;
+  color: black;
+}
+#progresso {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem 0 1rem;
+  height: 3rem;
+  width: 100%;
+  background-color: #543dae;
+  border-radius: 2rem;
+
+  & > span {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+  }
+}
+
+#conteinerCriaTime {
+  margin: auto;
+
+  & > h2 {
+    width: 30rem;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+  }
+}
+#conteinerMensagem {
+  height: 100%;
+  width: 40%;
+  background-color: #512da8;
+  background: linear-gradient(to right, #5c6bc0, #512da8);
+  border-radius: 0 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > p {
+    margin: 12rem 0 0 1rem;
+    width: 25rem;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  & > img {
+    border-radius: 0 1rem 1rem 0;
+    height: 20rem;
+    width: 25rem;
+  }
+}
+
+form {
+  margin: auto;
+  text-align: center;
+
+  & > div {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    & > label {
+      margin-left: 1rem;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    & > input {
+      height: 3rem;
+      width: 30rem;
+      background-color: #d9d9d9;
+      border: none;
+      border-radius: 1rem;
+      padding-left: 1rem;
+    }
+  }
+}
+.voltar {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+}
+.prossegir {
+  cursor: pointer;
+  width: 10rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-weight: 600;
+  background-color: #543dae;
+}
+#ultimaDiv {
+  border-bottom: solid black 1px;
+  padding-bottom: 2rem;
+}
+
+.concluido {
+  background-image: url(https://icon-library.com/images/confirmed-icon/confirmed-icon-3.jpg);
+  background-size: cover;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+}
+.andamento {
+  background-color: white;
+}
+.proximos {
+  background-color: #221847;
+}
+#escolherparticipantes {
+  margin: 7rem 2rem 2rem 2rem;
+}
+#usuarios {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-height: 20rem;
+  grid-gap: 1rem;
+  padding-bottom: 1rem;
+  margin: 4rem 5rem 2rem 0;
+  border-bottom: solid black 1px;
+  overflow: scroll;
+}
+.usuario {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  max-width: 5rem;
+  max-height: 6rem;
+  &:hover:not(.selecionado) {
+    border: solid orange 2px;
+  }
+
+  & > img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+  }
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    max-width: 100%;
+  }
+}
+.selecionado {
+  border: solid greenyellow 3px;
+}
+#espacoBotoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5rem 0 2rem;
+}
+#escudos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  overflow: scroll;
+  max-height: 20rem;
+  grid-gap: 1rem;
+  margin: 4rem 5rem 5rem 0;
+  padding: 1rem;
+}
+.escudo {
+  cursor: pointer;
+
+  &:not(.selecionado) {
+    border: 2px solid transparent;
+  }
+  & > img {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 1rem;
+  }
+  &:hover:not(.selecionado) {
+    border: solid orange 2px;
+  }
+}
+#concluir {
+  cursor: pointer;
+  width: 10rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  color: white;
+  font-weight: 600;
+  background-color: #543dae;
+}
