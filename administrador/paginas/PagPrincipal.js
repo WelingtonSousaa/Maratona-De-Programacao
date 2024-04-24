@@ -25,7 +25,7 @@ function retornaPagPrincipal() {
       <p>Gerenciar times</p>
     </div>
 
-    <div class="opcao">
+    <div class="opcao" onclick="retornaPagCriarMaratona()">
       <img src="img/criar maratona em jpng.jpeg" alt="" />
       <p>Criar maratonas</p>
     </div>
@@ -40,7 +40,7 @@ function retornaPagPrincipal() {
       <p>Gerenciar partidas</p>
     </div>
 
-    <div class="opcao">
+    <div class="opcao" onclick="RetornaPagInforUsuario()">
       <img src="img/editarPerfil.jpeg" alt="" />
       <p>Editar Usuário</p>
     </div>
