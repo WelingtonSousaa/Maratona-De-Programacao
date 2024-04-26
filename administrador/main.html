@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/criarMaratona.css" />
     <link rel="stylesheet" href="css/inforUsuario.css" />
     <link rel="stylesheet" href="css/principal.css" />
+    <link rel="stylesheet" href="css/gerenciarMaratona.css" />
 
     <link
       rel="stylesheet"
@@ -39,7 +40,9 @@
           </button>
           <div id="maratonasDropdown" class="drop-menu">
             <button onclick="retornaPagCriarMaratona()">Criar maratona</button>
-            <button>Gerenciar maratona</button>
+            <button onclick="retornaPagGerenciarMaratona()">
+              Gerenciar maratona
+            </button>
             <button>Buscar maratona</button>
           </div>
         </li>
@@ -91,7 +94,7 @@
             <p>Criar maratonas</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagGerenciarMaratona()">
             <img src="img/criar maratona em jpng.jpeg" alt="" />
             <p>Gerenciar maratonas</p>
           </div>
@@ -114,5 +117,6 @@
     <script src="js/CriarTime.js"></script>
     <script src="js/criarMaratona.js"></script>
     <script src="paginas/PagInforUsuario.js"></script>
+    <script src="js/gerenciarMaratona.js"></script>
   </body>
 </html>

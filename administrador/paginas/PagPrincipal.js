@@ -30,7 +30,7 @@ function retornaPagPrincipal() {
       <p>Criar maratonas</p>
     </div>
 
-    <div class="opcao">
+    <div class="opcao" onclick="retornaPagGerenciarMaratona()">
       <img src="img/criar maratona em jpng.jpeg" alt="" />
       <p>Gerenciar maratonas</p>
     </div>
