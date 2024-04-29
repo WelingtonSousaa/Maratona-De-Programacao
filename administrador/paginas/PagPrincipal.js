@@ -8,7 +8,9 @@ function retornaPagPrincipal() {
       habilidades
     </p>
     <div id="conteinerBotoes">
-      <button>criar uma maratona</button>
+      <button onclick="retornaPagCriarMaratona()">
+        criar uma maratona
+      </button>
 
       <button onclick="retornaPagCriarTime()">criar um time</button>
     </div>
@@ -20,7 +22,7 @@ function retornaPagPrincipal() {
       <p>Criar um time</p>
     </div>
 
-    <div class="opcao">
+    <div class="opcao" onclick="retornaPagGerenciarTimes()">
       <img src="img/gerenciartime.jpeg" alt="" />
       <p>Gerenciar times</p>
     </div>
