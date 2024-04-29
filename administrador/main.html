@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/inforUsuario.css" />
     <link rel="stylesheet" href="css/principal.css" />
     <link rel="stylesheet" href="css/gerenciarMaratona.css" />
+    <link rel="stylesheet" href="css/gerenciarTimes.css" />
 
     <link
       rel="stylesheet"
@@ -29,8 +30,9 @@
           </button>
           <div id="timesDropdown" class="drop-menu">
             <button onclick="retornaPagCriarTime()">Criar times</button>
-            <button>Gerenciar times</button>
-            <button>Buscar time</button>
+            <button onclick="retornaPagGerenciarTimes()">
+              Gerenciar times
+            </button>
           </div>
         </li>
 
@@ -84,7 +86,7 @@
             <p>Criar um time</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagGerenciarTimes()">
             <img src="img/gerenciartime.jpeg" alt="" />
             <p>Gerenciar times</p>
           </div>
@@ -118,5 +120,6 @@
     <script src="js/criarMaratona.js"></script>
     <script src="paginas/PagInforUsuario.js"></script>
     <script src="js/gerenciarMaratona.js"></script>
+    <script src="js/gerenciarTimes.js"></script>
   </body>
 </html>

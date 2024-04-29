@@ -58,11 +58,13 @@ function informacoesMaratona() {
   </div>
   <div id="listaTimes">
     <p>Nome das equipes participantes:</p>
-    <p>time número 1</p>
-    <p>capivaras do sertão</p>
-    <p>time007</p>
-    <p>jurubebas</p>
-    <p>Codigo com erro</p>
+    <ul>
+    <li>time número 1</li>
+    <li>capivaras do sertão</li>
+    <li>time007</li>
+    <li>jurubebas</li>
+    <li>Codigo com erro</li>
+    </ul>
   </div>
 </div>
 <div id="botoesMaratona">
@@ -85,7 +87,7 @@ function retornaPagGerenciarMaratona() {
     <button class="bi bi-arrow-counterclockwise" id="refazer" onclick="retornaPagGerenciarMaratona()"></button>
   </div>
   <div id="informa">
-    <p>nome da maratona</p>
+    <p>nome</p>
     <p>quantidade de times</p>
   </div>
   <div id="minhasMaratonas">
