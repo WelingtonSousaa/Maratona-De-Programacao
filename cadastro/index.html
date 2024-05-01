@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Fonte Awesome-->
+    <!--  Awesome   -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Normalize CSS -->
+    <!--  Normalize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Style CSS  r-->
+    <!--  CSS       -->
     <link rel="stylesheet" href="style.css">
-    <!-- Título da página-->
+    <!--  Título    -->
     <title>Projeto Integrador I</title>
 </head>
 
@@ -22,33 +22,33 @@
             <form>
                 <h1>Escolha seu avatar</h1>
                 <div class="grade-avatar" id="gradeAvatar">
-                    <!-- As imagens serão adicionadas dinamicamente aqui -->
+                    <!-- Imagens adicionadas dinamicamente -->
                 </div>
-                
+
                 <button>Finalizar</button>
             </form>
         </div>
         <div class="form-container criar-conta">
-            <form action="processar.php" method="p">
+            <form action="process.php" method="post">
                 <h1>Crie sua conta</h1>
                 <div>
                     <label>Nome Completo:</label>
-                    <input type="nomeCompleto" placeholder="Fulano de tal">
+                    <input type="nomeCompleto" id="inputNomeCompleto" placeholder="Fulano de tal dos anzóis">
                 </div>
                 <div>
                     <label>Email</label>
-                    <input type="email" placeholder="fulanodetal@gmail.com">
+                    <input type="email" id="inputEmail" placeholder="fulanodetalazevedo@gmail.com">
                 </div>
-                
+
                 <div>
                     <label>Nome de Usuário</label>
-                    <input type="nomeUsuario" placeholder="Nome de Usuário">
+                    <input type="nomeUsuario" id="inputNomeUsuario" placeholder="juninho321">
                 </div>
                 <div>
                     <Label>Senha</Label>
-                    <input type="senha" placeholder="**********">
+                    <input type="senha" id="inputSenha" placeholder="**********">
                 </div>
-                
+                <button action="submit" id="buttonform"></button>
             </form>
         </div>
         <div class="alternar-container">
@@ -62,13 +62,33 @@
                 <div class="alternar-panel alternar-direita">
                     <h1>Olá Invocador!</h1>
                     <p>Crie já sua conta, e venha se aventurar conosco</p>
-                    <button class="esconder" id="registrar">Continuar Cadastro</button>
+                    <button class="esconder" id="registrar"> Continuar Cadastro</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+        var botaoContinuarCadastro = document.getElementById("registrar");
+
+        var botaoContinuarCadastro = document.getElementById("registrar");
+
+        // Adiciona um ouvinte de eventos para o evento de clique no botão "Continuar Cadastro"
+        botaoContinuarCadastro.addEventListener("click", function () {
+            // Seleciona o botão "buttonform" pelo ID
+            var botaoForm = document.getElementById("buttonform");
+
+            // Simula um clique no botão "buttonform"
+            botaoForm.click();
+        });
+
+        // Adiciona um ouvinte de eventos para o evento de clique no botão "buttonform"
+        var botaoForm = document.getElementById("buttonform");
+        botaoForm.addEventListener("click", function () {
+            console.log("deu certo");
+        });
+
+    </script>
 </body>
 
 </html>
