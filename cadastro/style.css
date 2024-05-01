@@ -69,7 +69,16 @@ body {
 .container form {
     background-color: #fff;
     display: flex;
-    align-items: center;
+
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+#dadosCadastro{
+    background-color: #fff;
+    display: flex;
+
     justify-content: center;
     flex-direction: column;
     padding: 0 40px;
@@ -98,6 +107,10 @@ body {
     left: 0;
     width: 50%;
     z-index: 2;
+}
+
+.criar-conta h1{
+    padding-left: 2.2rem;
 }
 
 .container.active .criar-conta{
