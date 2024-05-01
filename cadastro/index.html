@@ -29,27 +29,29 @@
             </form>
         </div>
         <div class="form-container criar-conta">
-            <form action="process.php" method="post">
+
+            <div id="dadosCadastro">
                 <h1>Crie sua conta</h1>
                 <div>
-                    <label>Nome Completo:</label>
-                    <input type="nomeCompleto" id="inputNomeCompleto" placeholder="Fulano de tal dos anzóis">
+                    <label for="inputNomeCompleto">Nome Completo:</label>
+                    <input type="text" id="inputNomeCompleto" name="nomeCompleto"
+                        placeholder="Fulano de tal dos anzóis">
                 </div>
                 <div>
-                    <label>Email</label>
-                    <input type="email" id="inputEmail" placeholder="fulanodetalazevedo@gmail.com">
+                    <label for="imputEmail">Email</label>
+                    <input type="email" id="inputEmail" name="email" placeholder="fulanodetal3@gmail.com">
                 </div>
+                <div>
+                    <label for="inputNomeUsuario">Nome de Usuário</label>
+                    <input type="text" id="inputNomeUsuario" name="nomeUsuario" placeholder="juninho321">
+                </div>
+                <div>
+                    <Label for="inputSenha">Senha</Label>
+                    <input type="senha" id="inputSenha" name="senha" placeholder="**********">
+                </div>
+                <button id="submitButton" style="display: none;"></button>
+            </div>
 
-                <div>
-                    <label>Nome de Usuário</label>
-                    <input type="nomeUsuario" id="inputNomeUsuario" placeholder="juninho321">
-                </div>
-                <div>
-                    <Label>Senha</Label>
-                    <input type="senha" id="inputSenha" placeholder="**********">
-                </div>
-                <button action="submit" id="buttonform"></button>
-            </form>
         </div>
         <div class="alternar-container">
             <div class="alternar">
@@ -68,27 +70,8 @@
         </div>
     </div>
 
-    <script src="script.js">
-        var botaoContinuarCadastro = document.getElementById("registrar");
-
-        var botaoContinuarCadastro = document.getElementById("registrar");
-
-        // Adiciona um ouvinte de eventos para o evento de clique no botão "Continuar Cadastro"
-        botaoContinuarCadastro.addEventListener("click", function () {
-            // Seleciona o botão "buttonform" pelo ID
-            var botaoForm = document.getElementById("buttonform");
-
-            // Simula um clique no botão "buttonform"
-            botaoForm.click();
-        });
-
-        // Adiciona um ouvinte de eventos para o evento de clique no botão "buttonform"
-        var botaoForm = document.getElementById("buttonform");
-        botaoForm.addEventListener("click", function () {
-            console.log("deu certo");
-        });
-
-    </script>
+    <script src="script.js"></script>
+    <script src="dados.js"></script>
 </body>
 
 </html>
