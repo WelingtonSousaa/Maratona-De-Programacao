@@ -44,13 +44,7 @@ loginBtn.addEventListener("click", () => {
 });
 
 
-// Adiciona um event listener para o formulário de cadastro
-const formularioCadastro = document.getElementById("formularioCadastro");
-formularioCadastro.addEventListener("submit", function(event) {
-  event.preventDefault(); // Impede o envio padrão do formulário
 
-  // Aqui você pode adicionar qualquer lógica de envio do formulário, como enviar via AJAX
-  
-  // Após enviar o formulário, redirecionar para a página de avatares
-  window.location.href = "avatares.php";
-});
+
+
+

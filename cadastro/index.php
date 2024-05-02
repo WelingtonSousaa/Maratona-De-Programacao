@@ -1,47 +1,29 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "proj";
+include '../conexao.php';
 
-    // Criar conexão
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// Verificar se os dados do formulário foram enviados
+if (isset($_POST['nome_completo'], $_POST['email'], $_POST['nome_de_usuario'], $_POST['senha'])) {
+    // Dados para inserir na tabela de usuários
+    $nomeCompleto = $_POST['nome_completo'];
+    $email = $_POST['email'];
+    $nomeUsuario = $_POST['nome_de_usuario'];
+    $senha = $_POST['senha'];
 
-    // Verificar conexão
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
+    // Instrução SQL para inserir dados na tabela de usuários
+    $sql = "INSERT INTO usuarios (nome_completo, email, nome_de_usuario, senha) VALUES ('$nomeCompleto', '$email', '$nomeUsuario', '$senha')";
 
-    // Verificar se os dados do formulário foram enviados
-    if (isset($_POST['nome_completo'], $_POST['email'], $_POST['nome_de_usuario'], $_POST['senha'])) {
-        // Dados para inserir na tabela de usuários
-        $nomeCompleto = $_POST['nome_completo'];
-        $email = $_POST['email'];
-        $nomeUsuario = $_POST['nome_de_usuario'];
-        $senha = $_POST['senha'];
-
-        // Instrução SQL para inserir dados na tabela de usuários
-        $sql = "INSERT INTO usuarios (nome_completo, email, nome_de_usuario, senha) VALUES ('$nomeCompleto', '$email', '$nomeUsuario', '$senha')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Novo registro inserido com sucesso!";
-        } else {
-            echo "Erro ao inserir registro: " . $conn->error;
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo "Novo registro inserido com sucesso!";
     } else {
-        echo "Por favor, preencha todos os campos do formulário.";
+        echo "Erro ao inserir registro: " . $conn->error;
     }
-
-    // Fechar conexão
-    $conn->close();
 } else {
-    // Redirecionar para a página principal ou exibir uma mensagem de erro
-    echo "Acesso inválido!";
+    echo "Por favor, preencha todos os campos do formulário.";
 }
+
+// Fechar conexão
+$conn->close();
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -63,21 +45,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div id="cabecalho-site">
+        <img id="imagem-logo" src="localhost/avatars/logo.jpg">
+        <h1>UFC CODERS</h1>
+    </div>
     <div class="container" id="container">
         <div class="form-container escolher-avatar">
-            <form action="index.php" method="post">
+
+            <form>
                 <h1>Escolha seu avatar</h1>
                 <div class="grade-avatar" id="gradeAvatar">
                     <!-- Imagens adicionadas dinamicamente -->
                 </div>
-
                 <button type="submit">Finalizar</button>
             </form>
         </div>
+
         <div class="form-container criar-conta">
 
             <form id="formularioCadastro" method="post">
-
                 <h1>Crie sua conta</h1>
                 <div>
                     <label for="inputNomeCompleto">Nome Completo:</label>
@@ -95,6 +81,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="inputSenha">Senha</label>
                     <input type="password" id="inputSenha" name="senha" placeholder="**********">
                 </div>
+                <div class="recebendoDadosCadastro">
+                    <input class="buttonAdm" type="checkbox" id="adminCheckbox" name="adminCheckbox">
+                    <label for="adminCheckbox">Administrador</label>
+                </div>
                 <button type="submit">Enviar dados</button>
             </form>
 
@@ -105,18 +95,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h1>Bem vindo!</h1>
                     <p>Agradecemos por usar nossa plataforma, e estamos ansiosos para acompanhar seus desafios e
                         aprendizados</p>
-                    <button class="esconder" id="login">Editar Informações</button>
+                    <button class="esconder" id="cadastro">Editar Informações</button>
                 </div>
                 <div class="alternar-panel alternar-direita">
-                    <h1>Olá Invocador!</h1>
-                    <p>Crie já sua conta, e venha se aventurar conosco</p>
-                    <button class="esconder" id="registrar" type="submit">Continuar Cadastro</button>
+                    <div class="esconder" id="dadosEnviados">
+                    </div>
+                    <h1 id="tituloMensagem">Olá Invocador!</h1>
+                    <p id="textoMensagem">Crie já sua conta, e venha se aventurar conosco</p>
+                    <button class="esconder" id="registrar">Continuar Cadastro</button>
                 </div>
             </div>
         </div>
     </div>
-
-
+    <div id="user">Já sou usuário</div>
+    <script src="script.js"></script>
+    <script src="css.js"></script>
 </body>
 
 </html>
