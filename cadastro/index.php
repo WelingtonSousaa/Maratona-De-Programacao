@@ -109,7 +109,6 @@ $conn->close();
     </div>
     <div id="user">Já sou usuário</div>
     <script src="script.js"></script>
-    <script src="css.js"></script>
 </body>
 
 </html>
