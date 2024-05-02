@@ -264,4 +264,5 @@ body {
 #cabecalho-site {
   display: flex;
   flex-direction: row;
+  padding-right: 30rem;
 }
