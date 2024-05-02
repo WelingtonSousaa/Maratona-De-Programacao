@@ -129,6 +129,12 @@ $conn->close();
     </div>
     <div id="user">Já sou usuário</div>
     <script src="script.js"></script>
+<<<<<<< HEAD
+</body>
+
+</html>
+=======
     <script src="dados.js"></script>
   </body>
 </html>
+>>>>>>> d05b079bef2590ffcc4829a58c1db69a4f288df6
