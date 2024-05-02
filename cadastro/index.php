@@ -50,7 +50,7 @@ $conn->close();
     <title>Projeto Integrador I</title>
   </head>
 
-<<<<<<< HEAD:cadastro/index.html
+
   <body>
     <div id="logo">
       <img src="../administrador/img/OIG1.jpeg" alt="" />
@@ -124,81 +124,11 @@ $conn->close();
             <p>Crie já sua conta, e venha se aventurar conosco</p>
             <button class="esconder" id="registrar">Continuar Cadastro</button>
           </div>
-=======
-<body>
-    <div id="cabecalho-site">
-        <img id="imagem-logo" src="localhost/avatars/logo.jpg">
-        <h1>UFC CODERS</h1>
-    </div>
-    <div class="container" id="container">
-        <div class="form-container escolher-avatar">
-
-            <form>
-                <h1>Escolha seu avatar</h1>
-                <div class="grade-avatar" id="gradeAvatar">
-                    <!-- Imagens adicionadas dinamicamente -->
-                </div>
-                <button type="submit">Finalizar</button>
-            </form>
-        </div>
-
-        <div class="form-container criar-conta">
-
-            <form id="formularioCadastro" method="post">
-                <h1>Crie sua conta</h1>
-                <div>
-                    <label for="inputNomeCompleto">Nome Completo:</label>
-                    <input type="text" id="inputNomeCompleto" name="nome_completo" placeholder="Fulano de tal">
-                </div>
-                <div>
-                    <label for="imputEmail">Email</label>
-                    <input type="email" id="inputEmail" name="email" placeholder="fulanodetal3@gmail.com">
-                </div>
-                <div>
-                    <label for="inputNomeUsuario">Nome de Usuário</label>
-                    <input type="text" id="inputNomeUsuario" name="nome_de_usuario" placeholder="juninho321">
-                </div>
-                <div>
-                    <label for="inputSenha">Senha</label>
-                    <input type="password" id="inputSenha" name="senha" placeholder="**********">
-                </div>
-                <div class="recebendoDadosCadastro">
-                    <input class="buttonAdm" type="checkbox" id="adminCheckbox" name="adminCheckbox">
-                    <label for="adminCheckbox">Administrador</label>
-                </div>
-                <button type="submit">Enviar dados</button>
-            </form>
-
-        </div>
-        <div class="alternar-container">
-            <div class="alternar">
-                <div class="alternar-panel alternar-esquerda">
-                    <h1>Bem vindo!</h1>
-                    <p>Agradecemos por usar nossa plataforma, e estamos ansiosos para acompanhar seus desafios e
-                        aprendizados</p>
-                    <button class="esconder" id="cadastro">Editar Informações</button>
-                </div>
-                <div class="alternar-panel alternar-direita">
-                    <div class="esconder" id="dadosEnviados">
-                    </div>
-                    <h1 id="tituloMensagem">Olá Invocador!</h1>
-                    <p id="textoMensagem">Crie já sua conta, e venha se aventurar conosco</p>
-                    <button class="esconder" id="registrar">Continuar Cadastro</button>
-                </div>
-            </div>
->>>>>>> 5c66b833f71cf83c1a418a7769c0d87fdd9f4c33:cadastro/index.php
         </div>
       </div>
     </div>
     <div id="user">Já sou usuário</div>
     <script src="script.js"></script>
-<<<<<<< HEAD:cadastro/index.html
     <script src="dados.js"></script>
   </body>
 </html>
-=======
-    <script src="css.js"></script>
-</body>
-
-</html>
->>>>>>> 5c66b833f71cf83c1a418a7769c0d87fdd9f4c33:cadastro/index.php
