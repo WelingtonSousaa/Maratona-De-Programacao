@@ -1,7 +1,7 @@
 let userName = "nome padrão usuario";
 let senha = "senha1234";
 let nomeCompleto = "nome completo padrão";
-let imgUsuario = "img/unnamed.jpg";
+let imgUsuario = "avatars/1.svg";
 
 function sair(num) {
   let containerUsuario = document.getElementById("conteinerUsuario");
@@ -94,18 +94,32 @@ function retornaEditaImgUsuario() {
   </div>
   <p>Escolha seu novo avatar</p>
   <div id="avatas">
-    <img src="img/unnamed.jpg" alt="" class="avatar" />
-    <img src="img/enemy.jpg" alt="" class="avatar" />
-    <img src="img/king.jpeg" alt="" class="avatar" />
-    <img src="img/unnamed.jpg" alt="" class="avatar" />
-    <img src="img/enemy.jpg" alt="" class="avatar" />
-    <img src="img/king.jpeg" alt="" class="avatar" />
-    <img src="img/unnamed.jpg" alt="" class="avatar" />
-    <img src="img/enemy.jpg" alt="" class="avatar" />
-    <img src="img/king.jpeg" alt="" class="avatar" />
-    <img src="img/unnamed.jpg" alt="" class="avatar" />
-    <img src="img/enemy.jpg" alt="" class="avatar" />
-    <img src="img/king.jpeg" alt="" class="avatar" />
+    <img src="avatars/1.svg" alt="" class="avatar" />
+    <img src="avatars/2.svg" alt="" class="avatar" />
+    <img src="avatars/3.svg" alt="" class="avatar" />
+    <img src="avatars/4.svg" alt="" class="avatar" />
+    <img src="avatars/5.svg" alt="" class="avatar" />
+    <img src="avatars/6.svg" alt="" class="avatar" />
+    <img src="avatars/7.svg" alt="" class="avatar" />
+    <img src="avatars/8.svg" alt="" class="avatar" />
+    <img src="avatars/9.svg" alt="" class="avatar" />
+    <img src="avatars/10.svg" alt="" class="avatar" />
+    <img src="avatars/11.svg" alt="" class="avatar" />
+    <img src="avatars/12.svg" alt="" class="avatar" />
+    <img src="avatars/13.svg" alt="" class="avatar" />
+    <img src="avatars/14.svg" alt="" class="avatar" />
+    <img src="avatars/15.svg" alt="" class="avatar" />
+    <img src="avatars/16.svg" alt="" class="avatar" />
+    <img src="avatars/17.svg" alt="" class="avatar" />
+    <img src="avatars/18.svg" alt="" class="avatar" />
+    <img src="avatars/19.svg" alt="" class="avatar" />
+    <img src="avatars/20.svg" alt="" class="avatar" />
+    <img src="avatars/21.svg" alt="" class="avatar" />
+    <img src="avatars/22.svg" alt="" class="avatar" />
+    <img src="avatars/23.svg" alt="" class="avatar" />
+    <img src="avatars/24.svg" alt="" class="avatar" />
+    <img src="avatars/25.svg" alt="" class="avatar" />
+
   </div>
   <div class="buttons">
     <button id="redefinir" onclick="redefinirImgUsuario()">
