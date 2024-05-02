@@ -10,14 +10,12 @@
 body {
   background-color: #c9d6ff;
   background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   height: 100vh;
 }
 
 .container {
+  margin: auto;
   background-color: #fff;
   border-radius: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
@@ -267,4 +265,21 @@ body {
   height: 10rem;
   margin: 1rem 1rem;
   border-radius: 100%;
+}
+
+#logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  & > img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+  }
+  & > p {
+    font-size: 2rem;
+    font-weight: 700;
+  }
 }
