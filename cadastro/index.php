@@ -76,6 +76,7 @@
 
     <!-- Incluindo o arquivo JavaScript -->
     <script src="script.js"></script>
+    <script src="css.js"></script>
 </body>
 
 </html>
