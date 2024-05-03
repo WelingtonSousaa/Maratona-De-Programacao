@@ -12,19 +12,10 @@ if (isset($_POST['nome_completo'], $_POST['email'], $_POST['nome_de_usuario'], $
     // Instrução SQL para inserir dados na tabela de usuários
     $sql = "INSERT INTO usuarios (nome_completo, email, nome_de_usuario, senha) VALUES ('$nomeCompleto', '$email', '$nomeUsuario', '$senha')";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Novo registro inserido com sucesso!";
-    } else {
-        echo "Erro ao inserir registro: " . $conn->error;
-    }
-} else {
-    echo "Por favor, preencha todos os campos do formulário.";
-}
-
-// Fechar conexão
-$conn->close();
-?>
-
+    if ($conn->query($sql) === TRUE) { echo "Novo registro inserido com
+sucesso!"; } else { echo "Erro ao inserir registro: " . $conn->error; } } else {
+echo "Por favor, preencha todos os campos do formulário."; } // Fechar conexão
+$conn->close(); ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -49,7 +40,6 @@ $conn->close();
     <!--  Título    -->
     <title>Projeto Integrador I</title>
   </head>
-
 
   <body>
     <div id="logo">
@@ -106,6 +96,10 @@ $conn->close();
               placeholder="**********"
             />
           </div>
+          <div id="conteinerCheckbox">
+            <input type="checkbox" id="Checkbox" name="meuCheckbox" />
+            <label for="Checkbox">Sou administrador</label>
+          </div>
           <button id="submitButton" style="display: none"></button>
         </div>
       </div>
@@ -127,14 +121,7 @@ $conn->close();
         </div>
       </div>
     </div>
-    <div id="user">Já sou usuário</div>
+    <div id="ConteinerJaUsuario"><button>já sou usuário</button></div>
     <script src="script.js"></script>
-<<<<<<< HEAD
-</body>
-
-</html>
-=======
-    <script src="dados.js"></script>
   </body>
 </html>
->>>>>>> d05b079bef2590ffcc4829a58c1db69a4f288df6
