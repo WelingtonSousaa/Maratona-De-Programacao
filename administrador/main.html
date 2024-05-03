@@ -6,8 +6,14 @@
     <title>Site</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/criarTime.css" />
-
+    <link rel="stylesheet" href="css/criarMaratona.css" />
+    <link rel="stylesheet" href="css/inforUsuario.css" />
     <link rel="stylesheet" href="css/principal.css" />
+    <link rel="stylesheet" href="css/gerenciarMaratona.css" />
+    <link rel="stylesheet" href="css/gerenciarTimes.css" />
+    <link rel="stylesheet" href="css/ranking.css" />
+    <link rel="stylesheet" href="css/comunidade.css" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -26,8 +32,9 @@
           </button>
           <div id="timesDropdown" class="drop-menu">
             <button onclick="retornaPagCriarTime()">Criar times</button>
-            <button>Gerenciar times</button>
-            <button>Buscar time</button>
+            <button onclick="retornaPagGerenciarTimes()">
+              Gerenciar times
+            </button>
           </div>
         </li>
 
@@ -36,23 +43,34 @@
             Maratonas
           </button>
           <div id="maratonasDropdown" class="drop-menu">
-            <button>Criar maratona</button>
-            <button>Gerenciar maratona</button>
+            <button onclick="retornaPagCriarMaratona()">Criar maratona</button>
+            <button onclick="retornaPagGerenciarMaratona()">
+              Gerenciar maratona
+            </button>
             <button>Buscar maratona</button>
           </div>
         </li>
 
-        <li><button class="navBotoes">Ranking</button></li>
+        <li>
+          <button class="navBotoes" onclick="RetornaPagRanking()">
+            Ranking
+          </button>
+        </li>
 
         <li><button class="navBotoes">comunidade</button></li>
 
         <li>
-          <img src="img/unnamed.jpg" alt="Imagem do usuario" id="imgUsuario" />
+          <img
+            src="img/unnamed.jpg"
+            alt="Imagem do usuario"
+            id="imgUsuario"
+            onclick="RetornaPagInforUsuario()"
+          />
         </li>
       </ul>
     </nav>
     <div id="global">
-      <div id="principal">
+      <!-- <div id="principal">
         <h1 id="boasVindas">Bem-vindo ao nosso site!</h1>
         <div id="conteiner">
           <p>
@@ -60,7 +78,9 @@
             habilidades
           </p>
           <div id="conteinerBotoes">
-            <button>criar uma maratona</button>
+            <button onclick="retornaPagCriarMaratona()">
+              criar uma maratona
+            </button>
 
             <button onclick="retornaPagCriarTime()">criar um time</button>
           </div>
@@ -72,17 +92,17 @@
             <p>Criar um time</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagGerenciarTimes()">
             <img src="img/gerenciartime.jpeg" alt="" />
             <p>Gerenciar times</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagCriarMaratona()">
             <img src="img/criar maratona em jpng.jpeg" alt="" />
             <p>Criar maratonas</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="retornaPagGerenciarMaratona()">
             <img src="img/criar maratona em jpng.jpeg" alt="" />
             <p>Gerenciar maratonas</p>
           </div>
@@ -92,41 +112,45 @@
             <p>Gerenciar partidas</p>
           </div>
 
-          <div class="opcao">
+          <div class="opcao" onclick="RetornaPagInforUsuario()">
             <img src="img/editarPerfil.jpeg" alt="" />
             <p>Editar Usuário</p>
           </div>
         </div>
-      </div>
-
-      <!-- <div id="criarTime">
-        <div id="conteinerPassos">
-          <div>
-            <div id="passos">
-              <p>Dados</p>
-              <p>Participantes</p>
-              <p>Escudos</p>
-              <p>Concluído</p>
-            </div>
-            <div id="progresso">
-              <span id="span01" class="andamento"></span>
-              <span id="span02" class="proximos"></span>
-              <span id="span03" class="proximos"></span>
-              <span id="span04" class="proximos"></span>
-            </div>
-          </div>
-        </div>
-        <div id="conteinerMensagem">
-          <p>Cadastre seu time para participar de maratonas incríveis</p>
-          <img src="img/criarTime.jpeg" alt="" />
-        </div>
-        <div id="conteinerCriaTime">
-          
-        </div>
       </div> -->
+      <div id="comunidade">
+        <h1>VEJA O QUE ANDA ACONTECENDO!</h1>
+        <div class="InforComunidade">
+          <p>A maratona "insana" foi encerrada</p>
+          <p>04/05/2024 13:54</p>
+        </div>
+        <div class="InforComunidade">
+          <p>O time "Testando" foi criado</p>
+          <p>03/05/2024 07:35</p>
+        </div>
+        <div class="InforComunidade">
+          <p>O usuario "Destruidor" apagou sua conta</p>
+          <p>03/05/2024 07:15</p>
+        </div>
+
+        <div class="InforComunidade">
+          <p>novo usuário criado, olá Destruidor!</p>
+          <p>02/05/2024 14:34</p>
+        </div>
+        <div class="InforComunidade">
+          <p>A maratona "insana" foi criada</p>
+          <p>02/05/2024 07:13</p>
+        </div>
+      </div>
     </div>
+
     <script src="js/main.js"></script>
-    <script src="js/CriarTime.js"></script>
     <script src="paginas/PagPrincipal.js"></script>
+    <script src="js/CriarTime.js"></script>
+    <script src="js/criarMaratona.js"></script>
+    <script src="paginas/PagInforUsuario.js"></script>
+    <script src="js/gerenciarMaratona.js"></script>
+    <script src="js/gerenciarTimes.js"></script>
+    <script src="js/ranking.js"></script>
   </body>
 </html>

@@ -1,0 +1,140 @@
+#criarMaratona {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 3rem;
+  height: 35rem;
+  width: 80%;
+  background-color: rgba(128, 128, 128, 0.612);
+  border-radius: 2rem;
+}
+
+#progressoMaratona {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 1rem 0 1rem;
+  height: 3rem;
+  width: 100%;
+  background-color: #bb0f14;
+  border-radius: 2rem;
+
+  & > span {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+  }
+}
+
+#conteinerCriaMaratona {
+  margin: auto;
+
+  & > h2 {
+    width: 30rem;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+  }
+}
+
+.andamentoMaratona {
+  background-color: white;
+}
+.proximosMaratona {
+  background-color: #221847;
+}
+.time.selecionado {
+  border: solid green 3px;
+}
+#conteinerMensagemMaratona {
+  height: 100%;
+  width: 40%;
+  background-color: #ef593e;
+  background: linear-gradient(to right, #d35461, #ef593e);
+
+  border-radius: 0 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & > p {
+    margin: 12rem 0 0 1rem;
+    width: 25rem;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  & > img {
+    border-radius: 0 1rem 1rem 0;
+    height: 20rem;
+    width: 25rem;
+  }
+}
+
+#escolhertimes {
+  margin: 7rem 2rem 2rem 2rem;
+}
+#times {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-height: 20rem;
+  grid-gap: 1rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+  margin: 4rem 5rem 2rem 0;
+  overflow-y: scroll;
+}
+.time {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  max-width: 6rem;
+  max-height: 6rem;
+  &:hover:not(.selecionado) {
+    border: solid orange 2px;
+  }
+
+  & > img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 0.5rem;
+  }
+  & > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    max-width: 100%;
+  }
+}
+
+#espacoBotoes {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 2rem 0 2rem;
+}
+#MsgSemMaratonas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  color: red;
+  margin-top: 4rem;
+  padding: 1rem;
+  border: solid rgb(61, 60, 60) 1px;
+  border-radius: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  overflow: hidden;
+  & > span {
+    color: rgb(205, 205, 34);
+  }
+}

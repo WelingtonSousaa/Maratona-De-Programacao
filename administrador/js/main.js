@@ -6,3 +6,4 @@ function aparecerMenu(dropdownId) {
     dropdown.style.display = "none";
   }
 }
+const time1 = ["p1", "p2", "..."];

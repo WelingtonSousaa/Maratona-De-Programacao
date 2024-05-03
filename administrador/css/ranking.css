@@ -1,0 +1,161 @@
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#melhores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10rem;
+}
+#inforMelhores {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  & > p {
+    width: 50%;
+
+    padding: 0 0.5rem;
+    text-align: center;
+  }
+}
+
+#melhorTime {
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgb(51, 185, 201);
+  background: linear-gradient(
+    63deg,
+    rgba(51, 185, 201, 1) 7%,
+    rgba(34, 0, 255, 1) 82%,
+    rgba(51, 182, 201, 1) 100%
+  );
+
+  & > p:nth-child(1) {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  & > img {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 2rem;
+  }
+}
+
+#inforMelhorTime {
+  width: 25rem;
+  background-color: white;
+  margin-top: 1rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & > p:nth-child(1) {
+      font-weight: 800;
+    }
+  }
+}
+#abr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+#participantesTime {
+  display: flex;
+  flex-direction: column;
+
+  & > ul {
+    list-style: none;
+    padding-left: 2rem;
+  }
+}
+.dadosVitorias {
+  font-size: 1.3rem;
+  & > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  & > div:nth-child(1) {
+    & > p {
+      color: green;
+    }
+  }
+  & > div:last-child {
+    & > p {
+      color: #ddbe03;
+    }
+  }
+}
+
+#melhorJogador {
+  width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgb(236, 215, 12);
+  background: linear-gradient(
+    63deg,
+    rgba(236, 215, 12, 1) 22%,
+    rgba(255, 159, 0, 1) 84%,
+    rgba(255, 236, 0, 1) 100%
+  );
+
+  & > p:nth-child(1) {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  & > img {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 2rem;
+  }
+}
+#inforMelhorJogador {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 25rem;
+  background-color: white;
+  margin-top: 1rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & > p:nth-child(1) {
+      font-weight: 800;
+    }
+  }
+}
+
+#dica {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: solid black 3px;
+  border-radius: 2rem;
+  padding: 0 5rem;
+  margin: 2rem;
+  font-size: 2rem;
+  & > img {
+    height: 15rem;
+  }
+}

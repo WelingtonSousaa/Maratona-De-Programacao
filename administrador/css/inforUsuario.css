@@ -1,0 +1,193 @@
+#conteinerUsuario {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  border-radius: 2rem;
+  background: rgb(82, 80, 87);
+  background: linear-gradient(
+    70deg,
+    rgba(82, 80, 87, 1) 30%,
+    rgba(109, 105, 115, 1) 66%,
+    rgba(140, 137, 143, 1) 100%
+  );
+}
+
+#dadosUsuario {
+  position: relative;
+  margin: 0 5rem 0 5rem;
+
+  align-items: center;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    & > p {
+      width: 25rem;
+      overflow: hidden;
+    }
+    & > button {
+      cursor: pointer;
+      border: none;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      background-color: #543dae;
+      color: white;
+      margin-left: 6rem;
+      &:hover {
+        color: rgb(209, 207, 207);
+        background-color: #4f2ed5;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.topoBotoes {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 2rem;
+}
+.buttonSair {
+  cursor: pointer;
+  height: 2rem;
+  width: 3rem;
+  border: none;
+  background-color: red;
+  border-radius: 0.5rem;
+  color: white;
+  &:hover {
+    background-color: rgb(187, 11, 11);
+  }
+  &:active {
+    background-color: rgb(135, 13, 13);
+  }
+}
+
+#imagemUsuario {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 2rem;
+  margin-left: 11rem;
+}
+#editaFotoPerfil {
+  cursor: pointer;
+  position: absolute;
+  right: 9rem;
+  top: 9.5rem;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  background-color: #543dae;
+  color: white;
+  font-size: 1.3rem;
+  &:hover {
+    color: rgb(209, 207, 207);
+    transform: scale(1.1);
+    background-color: #4f2ed5;
+  }
+}
+
+#nomeUsuario {
+  font-size: 2rem;
+  font-weight: 800;
+}
+#divButtonExcluir {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#buttonExcluir {
+  cursor: pointer;
+  border: none;
+  height: 2rem;
+  width: 10rem;
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.edicao {
+  background-color: gray;
+  position: absolute;
+  margin-top: auto;
+  margin-left: 11rem;
+  z-index: 1;
+  padding: 0 0 2rem 2rem;
+  border-radius: 1rem;
+  & > p {
+    font-weight: 700;
+    padding: 0 2rem 1rem 0;
+  }
+  & > input {
+    height: 3rem;
+    width: 18rem;
+    border-radius: 0.5rem;
+    margin: 0 2rem 1rem 0;
+    padding-left: 1rem;
+  }
+}
+
+.buttons {
+  margin: 1rem 3rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+
+  & > button {
+    height: 2rem;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    background-color: #543dae;
+    color: white;
+    &:hover {
+      color: rgb(209, 207, 207);
+      transform: scale(1.1);
+      background-color: #30216c;
+    }
+  }
+}
+#editorImgUsuario {
+  margin-left: 4rem;
+  & > p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(196, 230, 73);
+  }
+}
+
+#avatas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow-y: scroll;
+  max-height: 25rem;
+  gap: 0.5rem;
+  border: solid 3px transparent;
+  margin-right: 2rem;
+  padding: 0.5rem;
+}
+.avatar {
+  cursor: pointer;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+  &:hover:not(.avatarSelecionado) {
+    border: solid 2px orange;
+  }
+}
+.avatarSelecionado {
+  border: solid 3px green;
+}
