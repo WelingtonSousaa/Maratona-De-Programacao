@@ -15,7 +15,7 @@ const times = [
     new Time("escudotesteS.jpg", "Time G", ["Participante 1G", "Participante 2G", "Participante 3G", "Participante 4G", "Participante 5G"]),
     new Time("escudoteste2S.jpg", "Time H", ["Participante 1H", "Participante 2H", "Participante 3H", "Participante 4H", "Participante 5H"]),
 ];
-
+let confrontos = [];
 function sortearConfrontos() {
     const limparQuadrado = document.querySelectorAll('.quadrado');
     limparQuadrado.forEach(quadrado => {
@@ -26,7 +26,6 @@ function sortearConfrontos() {
         mensagem.remove();
     });
         
-    const confrontos = [];
    
     
     while (times.length > 1) {
@@ -37,9 +36,7 @@ function sortearConfrontos() {
         let timeB = times.splice(indiceB, 1)[0];
 
         confrontos.push([timeA, timeB]);
-       
     }
-   
     
     const linhaBaixo = document.querySelector('.linha-baixo');
     const quadrados = linhaBaixo.getElementsByClassName('quadrado');
