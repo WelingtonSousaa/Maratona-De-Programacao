@@ -1,0 +1,126 @@
+body, html {
+    height: 80%;
+    margin: 0;
+    padding: 0;
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6b6868;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+    padding: 150px;
+    position: relative; 
+}
+
+.linha-cima {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative; 
+}
+
+.linha-meio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; 
+    position: relative;
+}
+
+.linha-baixo {
+    display: flex;
+    justify-content: center;
+    position: relative; 
+}
+
+.quadrado {
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    background-color: rgb(199, 198, 198);
+    margin-right: 10px; 
+    position: relative; 
+    display: flex;
+align-items: center;
+justify-content: center; 
+font-family: Arial, sans-serif;
+font-weight: bold;
+border-radius: 1rem;
+}
+.texto {
+font-size: 30px;
+font-weight: bold;
+position: absolute;
+top: 50%;
+transform: translateY(-50%) translateX(-100%);
+left: 50%;
+}
+.especial-quadrado {
+    margin-right: 50px; 
+}
+.botao-conteudo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao {
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #635f5f;
+    border: solid;
+    border-color: rgb(56, 49, 49);
+    border-radius: 5px;
+    margin-left: 6px;
+}
+.linha-baixo .quadrado-conteudo {
+display: center;
+flex-direction: column;
+align-items: center;
+ 
+}
+
+.linha-baixo .botao {
+margin-top: 10px; 
+}
+.mensagem-vitoria {
+    position: absolute;
+    top: -150px; 
+    left: 55%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+.botao:hover {
+cursor: pointer; 
+background-color: #56db8e;
+border-color: rgb(0, 0, 0); 
+}
+.sortear-botao {
+    margin-top: 20px;
+    margin-right: 25px;
+}
+.titulo {
+    position: absolute;
+    top: -150px; 
+    left: 100%;
+    transform: translateX(-235%);
+    font-size: 50px;
+    font-weight: bold;
+}
+#cronometro {
+    position: absolute;
+    top: -150px; 
+    left: 80%;
+    transform: translateX(-235%);
+    font-size: 50px;
+    font-weight: bold;
+}
+

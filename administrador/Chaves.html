@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaves de Torneio</title>
+<link rel="stylesheet" href="css/Chaves.css" />
+<link rel="stylesheet" href="css/Partida.css" />
+</head>
+<body>
+<div class="conteudo">
+    <div class="linha-cima">
+        <div class="titulo" style="left: 0;">Torneio X</div>
+        <div id="cronometro">00:00:00</div>
+        <div class="texto" style="left: 0;">Finais</div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado especial-quadrado"></div>
+            <button class="botao" onclick="DecidirVencedor(1)">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="DecidirVencedor(2)">Pontuar</button>
+        </div>
+    </div>
+    <div class="linha-meio">
+        <div class="texto" style="left: 0;">Semi-Finais</div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="moverFinal(1)">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado especial-quadrado"></div>
+            <button class="botao" onclick="moverFinal(2)">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="moverFinal(3)">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="moverFinal(4)">Pontuar</button>
+        </div>
+    </div>
+    <div class="linha-baixo">
+        <div class="texto" style="left: 0;">Eliminatorias</div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(0);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado especial-quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(0);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(1);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado especial-quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(1);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(2);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado especial-quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(2);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(3);">Pontuar</button>
+        </div>
+        <div class="quadrado-conteudo">
+            <div class="quadrado"></div>
+            <button class="botao" onclick="mostrarSegundaTela(3);">Pontuar</button>
+        </div>
+    </div>
+    <button class="botao sortear-botao" onclick="sortearConfrontos()">Sortear Confrontos</button> <!-- Botão centralizado -->
+</div>
+<div id="modal" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <h2>Tela de Estatisticas</h2>
+        <div id="conteudo-modal">
+        </div>
+    </div>
+</div>
+<script src="js/Chaves.js"></script>
+<script src="js/Partida.js"></script>
+</body>
+</html>
