@@ -1,0 +1,59 @@
+/* Estilo básico para o body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para o container */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para os grupos de formulários */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo para os rótulos */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo para os campos de entrada */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão de envio */
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para o botão de envio quando hover */
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a mensagem de feedback */
+#login-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
