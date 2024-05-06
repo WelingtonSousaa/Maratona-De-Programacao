@@ -14,12 +14,16 @@ $('form').submit(function (e) {
     //console.log(u_administrador);
 
     $.ajax({
-        url: 'http://localhost/teste/assets/php/cadastro.php',
+        url: 'http://localhost/projeto/assets/php/cadastro.php',
         method: 'POST',
         data: { nome_completo: u_nomeCompleto, email: u_email, nome_usuario: u_nomeUsuario, senha: u_senha, administrador: u_administrador },
         dataType: 'json'
     }).done(function (result) {
         $('#nome_completo').val('');
+        $('#email').val('');
+        $('#nome_usuario').val('');
+        $('#senha').val('');
+        $('#administrador').val('');
         console.log(result);
     });
 });

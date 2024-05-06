@@ -6,7 +6,7 @@ $(document).ready(function () {
         var password = $('#senha').val();
 
         $.ajax({
-            url: 'http://localhost/teste/assets/php/login.php',
+            url: 'http://localhost/projeto/assets/php/login.php',
             method: 'POST',
             data: { nome_usuario: username, senha: password },
             dataType: 'json'

@@ -130,6 +130,7 @@
       </div>
     </div>
 
+    <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>
     <script src="js/main.js"></script>
     <script src="paginas/PagPrincipal.js"></script>
     <script src="js/CriarTime.js"></script>
