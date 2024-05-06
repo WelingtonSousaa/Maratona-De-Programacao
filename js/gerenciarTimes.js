@@ -73,6 +73,7 @@ function retornaInformacoesTime() {
   </div>
   <div id="botoesTime">
     <button class="botaoTime bi bi-trash-fill">excluir time</button>
+    <button class="botaoTime bi bi-trash-fill">editar informações</button>
   </div>
 </div>`;
 
