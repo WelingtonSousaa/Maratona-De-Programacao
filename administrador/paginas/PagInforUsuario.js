@@ -1,6 +1,6 @@
-let userName = "nome padrão usuario";
+let userName = "nome padrão usuário";
 let senha = "senha1234";
-let nomeCompleto = "nome completo padrão";
+let nomeCompleto = "nome padrão completo ";
 let imgUsuario = "avatars/1.svg";
 
 function sair(num) {
@@ -23,7 +23,7 @@ function retornaEditaNomeUsuario() {
   <div class="topoBotoes">
     <button class="buttonSair bi bi-x-lg" onclick="sair(2)"></button>
   </div>
-  <p>Digite Seu Novo Nome de Usuário</p>
+  <p>Digite seu novo nome de usuário</p>
   <input type="text" placeholder="novo nome de usuário" id="inputUserName"/>
   <div class="buttons">
     <button id="redefinir" onclick="redefinirUserName()">Redefinir</button>
@@ -69,7 +69,7 @@ function retornaEditaNomeCompleto() {
   <div class="topoBotoes">
     <button class="buttonSair bi bi-x-lg" onclick="sair(2)"></button>
   </div>
-  <p>Digite seu nome complete</p>
+  <p>Digite seu nome completo</p>
   <input type="text" placeholder="novo nome completo" id="inputNomeCompleto"/>
   <div class="buttons">
     <button id="redefinir" onclick="redefinirNomeCompleto()">Redefinir</button>
@@ -167,7 +167,7 @@ function RetornaPagInforUsuario() {
       src="${imgUsuario}"
       alt="Imagem do usuário"
     />
-    <button id="editaFotoPerfil" class="bi bi-brush-fill" onclick="retornaEditaImgUsuario()"></button>
+    <button id="editaFotoPerfil" class="bi bi-image" onclick="retornaEditaImgUsuario()"></button>
 
     <div>
       <p id="nomeUsuario">Usuário: ${userName}</p>
