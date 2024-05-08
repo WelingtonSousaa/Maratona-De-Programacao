@@ -175,11 +175,7 @@
   border-radius: 0.5rem;
   background-color: gray;
   color: white;
-  &:hover {
-    color: rgb(209, 207, 207);
-    transform: scale(1.1);
-    background-color: rgb(101, 101, 101);
-  }
+
   &:active {
     background-color: rgb(67, 67, 67);
   }
