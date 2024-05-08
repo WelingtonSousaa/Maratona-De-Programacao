@@ -37,8 +37,23 @@ $("form").submit(function (e) {
 let btnSubmitCadastro = document.getElementById("btn-submit-cadastro");
 
 btnSubmitCadastro.addEventListener("click", function () {
-  let bodyElement = document.body;
-  let newHtml = `
+  let senha = document.getElementById("senha");
+  let nome_completo = document.getElementById("nome_completo");
+  let nome_usuario = document.getElementById("nome_usuario");
+  let email = document.getElementById("email").value;
+
+  if (
+    senha.value === "" ||
+    nome_completo.value === "" ||
+    nome_usuario.value === "" ||
+    email === ""
+  ) {
+    alert("ops! campos vazios por favor preencha todos");
+  } else if (!email.includes("@")) {
+    alert("email inválido, por favor coloque um email válido");
+  } else {
+    let bodyElement = document.body;
+    let newHtml = `
   <div class="logo">
       <img src="img/enemy.jpg" alt="" />
       <p>nome do site</p>
@@ -64,9 +79,9 @@ btnSubmitCadastro.addEventListener("click", function () {
     </div>
   </div>
   <div id="spcBotao">
-    <button id="voltar">Voltar</button>
     <button id="finalizar">Finalizar</button>
   </div>
 </div>`;
-  bodyElement.innerHTML = newHtml;
+    bodyElement.innerHTML = newHtml;
+  }
 });

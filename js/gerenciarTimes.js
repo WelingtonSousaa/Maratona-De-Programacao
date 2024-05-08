@@ -43,6 +43,7 @@ function retornaInformacoesTime() {
   <div id="informacoesGeraisTime">
     <div id="conteinerEscudo">
       <img src="img/OIG1.jpeg" alt="" />
+      <button id="editaEscudo" class="bi bi-brush-fill" onclick="retornaEditaImgUsuario()"></button>
     </div>
     <div id="textos">
       <div id="abreviacao">
@@ -72,8 +73,8 @@ function retornaInformacoesTime() {
     </div>
   </div>
   <div id="botoesTime">
-    <button class="botaoTime bi bi-trash-fill">excluir time</button>
-    <button class="botaoTime bi bi-trash-fill">editar informações</button>
+    <button class="botaoexcluir bi bi-trash-fill">excluir time</button>
+    <button class="botaoeditar" onclick="retornaPagEditaTime()">editar informações</button>
   </div>
 </div>`;
 
@@ -140,4 +141,57 @@ function retornaPagGerenciarTimes() {
 </div>`;
 
   global.innerHTML = newHtml;
+}
+
+function retornaPagEditaTime() {
+  let informacoesTime = document.getElementById("informacoesTime");
+  let newHtml = `<div id="editarTime">
+  <div class="topoBotoes">
+    <button
+      class="buttonSair bi bi-x-lg"
+      id="SairInforUsuario"
+      onclick="sairEdicaoTime()"
+    ></button>
+  </div>
+  <form action="">
+    <div>
+      <label for="NovoNomeTime">Novo nome:</label>
+      <input type="text" name="NovoNomeTime" id="inputNovoNomeTime" />
+    </div>
+    <div>
+      <label for="NovaAbreviacao">Nova abreviação:</label>
+      <input type="text" name="NovaAbreviacao" id="inputNovaAbreviacao" />
+    </div>
+    <button onclick="verificaEdicao(event)" >Editar</button>
+  </form>
+</div>`;
+
+  informacoesTime.innerHTML += newHtml;
+}
+
+function verificaEdicao(event) {
+  event.preventDefault();
+  let inputNovoNomeTime = document.getElementById("inputNovoNomeTime");
+  let inputNovaAbreviacao = document.getElementById("inputNovaAbreviacao");
+
+  if (inputNovoNomeTime.value === "" || inputNovaAbreviacao.value === "") {
+    window.alert(
+      "A edição apresenta campos vazios, por favor preencha todos os campos"
+    );
+  } else {
+    let resposta = confirm(
+      `Você realmente deseja editar o nome do time para '${inputNovoNomeTime.value}' e sua abreviação para ${inputNovaAbreviacao.value}?`
+    );
+
+    if (resposta) {
+      alert(`Informações do time alteradas com sucesso`);
+      retornaPagGerenciarTimes();
+    }
+  }
+}
+function sairEdicaoTime() {
+  let informacoesTime = document.getElementById("informacoesTime");
+  let editarTime = document.getElementById("editarTime");
+
+  informacoesTime.removeChild(editarTime);
 }

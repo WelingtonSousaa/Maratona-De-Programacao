@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/gerenciarTimes.css" />
     <link rel="stylesheet" href="css/ranking.css" />
     <link rel="stylesheet" href="css/comunidade.css" />
+    <link rel="stylesheet" href="css/estatisticas.css" />
 
     <link
       rel="stylesheet"
@@ -122,9 +123,9 @@
             <p>Gerenciar partidas</p>
           </div>
 
-          <div class="opcao" onclick="RetornaPagInforUsuario()">
-            <img src="img/editarPerfil.jpeg" alt="" />
-            <p>Editar Usuário</p>
+          <div class="opcao" onclick="retornaPagEstatisticas()">
+            <img src="img/gerenciartime.jpeg" alt="" />
+            <p>Estatísticas</p>
           </div>
         </div>
 <<<<<<< HEAD:administrador/main.html
@@ -146,5 +147,6 @@
     <script src="js/gerenciarTimes.js"></script>
     <script src="js/ranking.js"></script>
     <script src="js/comunidade.js"></script>
+    <script src="js/estatisticas.js"></script>
   </body>
 </html>

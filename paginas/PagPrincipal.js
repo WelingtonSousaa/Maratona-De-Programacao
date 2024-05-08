@@ -42,10 +42,10 @@ function retornaPagPrincipal() {
       <p>Gerenciar partidas</p>
     </div>
 
-    <div class="opcao" onclick="RetornaPagInforUsuario()">
-      <img src="img/editarPerfil.jpeg" alt="" />
-      <p>Editar Usuário</p>
-    </div>
+    <div class="opcao" onclick="retornaPagEstatisticas()">
+            <img src="img/gerenciartime.jpeg" alt="" />
+            <p>Estatísticas</p>
+          </div>
   </div>
 </div>`;
   global.innerHTML = NewHtml;

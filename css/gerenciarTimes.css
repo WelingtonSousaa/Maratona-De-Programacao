@@ -97,7 +97,10 @@
   justify-content: space-between;
 }
 #botoesTime {
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 4rem;
 }
 #listaParticipantes {
   & > ul {
@@ -126,11 +129,30 @@
     }
   }
 }
-.botaoTime {
+#editaEscudo {
+  cursor: pointer;
+  position: absolute;
+  left: 43%;
+  top: 23%;
+  border: none;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 100%;
+  background-color: #543dae;
+  color: white;
+  font-size: 1.3rem;
+  &:hover {
+    color: rgb(209, 207, 207);
+    transform: scale(1.1);
+    background-color: #4f2ed5;
+  }
+}
+
+.botaoexcluir {
   cursor: pointer;
   font-size: 1rem;
   padding: 0.5rem;
-  width: 15rem;
+  width: 10rem;
   border: none;
   border-radius: 0.5rem;
   background-color: red;
@@ -142,5 +164,50 @@
   }
   &:active {
     background-color: rgb(129, 2, 2);
+  }
+}
+.botaoeditar {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: gray;
+  color: white;
+
+  &:active {
+    background-color: rgb(67, 67, 67);
+  }
+}
+
+#editarTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35rem;
+  background-color: white;
+  border-radius: 1rem;
+  position: absolute;
+  z-index: 1;
+  left: 10%;
+  top: 20%;
+
+  & > form {
+    & > button {
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: blueviolet;
+      border: solid black 1px;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      &:active {
+        color: rgb(237, 234, 234);
+        background-color: rgb(117, 39, 190);
+      }
+    }
   }
 }

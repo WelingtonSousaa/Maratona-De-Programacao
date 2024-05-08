@@ -69,6 +69,7 @@ function informacoesMaratona() {
 </div>
 <div id="botoesMaratona">
   <button class="botaoMaratona">Iniciar Maratona</button>
+  <button class="botaoeditar" onclick="retornaPagEditaMaratona()">editar informações</button>
 </div>
 </div>`;
 
@@ -118,4 +119,73 @@ function retornaPagGerenciarMaratona() {
   </div>
 </div>`;
   global.innerHTML = newHtml;
+}
+
+function retornaPagEditaMaratona() {
+  let informacoesMaratona = document.getElementById("informacoesMaratona");
+  let newHtml = `<div id="editarMaratona">
+  <div class="topoBotoes">
+    <button
+      class="buttonSair bi bi-x-lg"
+      id="SairInforUsuario"
+      onclick="sairEdicaoMaratona()"
+    ></button>
+  </div>
+  <form action="">
+    <div>
+      <label for="NovoNomeMaratona">Novo nome da maratona:</label>
+      <input type="text" name="NovoNomeMaratona" id="inputNovoNomeMaratona" />
+    </div>
+    <div>
+      <label for="NovaDescricao">Nova descrição:</label>
+      <input type="text" name="NovaDescricao" id="inputNovaDescricao" />
+    </div>
+    <div>
+      <label for="NovaPremiacao">Nova Premiação:</label>
+      <input type="text" name="NovaPremiacao" id="inputNovaPremiacao" />
+    </div>
+    <div>
+      <label for="NovoTempo">Novo tempo das partidas:</label>
+      <input type="Number" name="NovaTempo" id="inputNovoTempo" min="0" />
+    </div>
+    <button onclick="verificaEdicaoMaratona(event)">Editar</button>
+  </form>
+</div>`;
+
+  informacoesMaratona.innerHTML += newHtml;
+}
+
+function verificaEdicaoMaratona(event) {
+  event.preventDefault();
+  let inputNovoNomeMaratona = document.getElementById("inputNovoNomeMaratona");
+  let inputNovaDescricao = document.getElementById("inputNovaDescricao");
+  let inputNovaPremiacao = document.getElementById("inputNovaPremiacao");
+  let inputNovoTempo = document.getElementById("inputNovoTempo");
+
+  if (
+    inputNovoNomeMaratona.value === "" ||
+    inputNovaDescricao.value === "" ||
+    inputNovaPremiacao.value === "" ||
+    inputNovoTempo.value === "" ||
+    inputNovoTempo.value <= 0
+  ) {
+    alert(
+      "A edição apresenta campos vazios ou erros no preenchimento, por favor preencha todos os campos"
+    );
+  } else {
+    let resposta = confirm(
+      `Você realmente deseja fazer essas alterações na maratona?`
+    );
+
+    if (resposta) {
+      alert(`Informações do time alteradas com sucesso`);
+      retornaPagGerenciarMaratona();
+    }
+  }
+}
+function sairEdicaoMaratona() {
+  let informacoesMaratona = document.getElementById("informacoesMaratona");
+  let editarMaratona = document.getElementById("editarMaratona");
+
+  informacoesMaratona.removeChild(editarMaratona);
 }
