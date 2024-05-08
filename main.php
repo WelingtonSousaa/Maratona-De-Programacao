@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/gerenciarMaratona.css" />
     <link rel="stylesheet" href="css/gerenciarTimes.css" />
     <link rel="stylesheet" href="css/ranking.css" />
+    <link rel="stylesheet" href="css/comunidade.css" />
 
     <link
       rel="stylesheet"
@@ -26,7 +27,10 @@
         </li>
 
         <li>
-          <button class="navBotoes" onclick="aparecerMenu('timesDropdown')">
+          <button
+            class="navBotoes navBotoesDrop"
+            onclick="aparecerMenu('timesDropdown')"
+          >
             Times
           </button>
           <div id="timesDropdown" class="drop-menu">
@@ -38,7 +42,10 @@
         </li>
 
         <li>
-          <button class="navBotoes" onclick="aparecerMenu('maratonasDropdown')">
+          <button
+            class="navBotoes navBotoesDrop"
+            onclick="aparecerMenu('maratonasDropdown')"
+          >
             Maratonas
           </button>
           <div id="maratonasDropdown" class="drop-menu">
@@ -56,7 +63,11 @@
           </button>
         </li>
 
-        <li><button class="navBotoes">comunidade</button></li>
+        <li>
+          <button class="navBotoes" onclick="retornaComunidade()">
+            comunidade
+          </button>
+        </li>
 
         <li>
           <img
@@ -116,11 +127,16 @@
             <p>Editar Usuário</p>
           </div>
         </div>
+<<<<<<< HEAD:administrador/main.html
       </div> 
     
     
+=======
+      </div>
+>>>>>>> b2a9879b161cd6f54904897b033888444dc50ee8:main.php
     </div>
 
+    <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>
     <script src="js/main.js"></script>
     <script src="paginas/PagPrincipal.js"></script>
     <script src="js/CriarTime.js"></script>
@@ -129,5 +145,6 @@
     <script src="js/gerenciarMaratona.js"></script>
     <script src="js/gerenciarTimes.js"></script>
     <script src="js/ranking.js"></script>
+    <script src="js/comunidade.js"></script>
   </body>
 </html>

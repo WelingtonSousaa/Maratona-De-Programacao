@@ -190,45 +190,33 @@ function dadosPrincipais() {
 </form>`;
 }
 
+
+function criarElementosHTML(participantes) {
+  // Mapeando os dados para elementos HTML
+  const usuariosHTML = participantes.map(usuario => `
+    <div class="usuario" id="usuario${usuario.id}">
+      <img src="${usuario.avatar ? usuario.avatar : 'caminho_para_imagem_padrao.jpg'}" alt="Avatar" />
+      <p>${usuario.nome_usuario ? usuario.nome_usuario : 'Nome de Usuário'}</p>
+    </div>
+  `);
+  // Inserindo os elementos HTML gerados no DOM
+  $('#usuarios').html(usuariosHTML.join('\n'));
+}
+
+function getParticipantes() {
+  $.ajax({
+    url: 'http://localhost/projeto/assets/php/selecionar.php',
+    method: 'GET',
+    dataType: 'json'
+  }).done(function (result) {
+    return criarElementosHTML(result);
+  });
+}
+
 function retornaPagEscolherParticipantes() {
   let conteinerCriaTime = document.getElementById("conteinerCriaTime");
   let NewHtml = ` <div id="usuarios">
-  <div class="usuario" id="usuario01">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome usuario</p>
-  </div>
-  <div class="usuario" id="usuario02">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome usuario</p>
-  </div>
-  <div class="usuario" id="usuario03">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome usuario</p>
-  </div>
-  <div class="usuario" id="usuario04">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome usuario</p>
-  </div>
-  <div class="usuario" id="usuario05">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome usuario</p>
-  </div>
-  
+    ${getParticipantes()}
 </div>
 <div id="espacoBotoes">
   <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(1)">Voltar</button>

@@ -1,0 +1,15 @@
+Segue abaixo o código atual para criação do banco de dados
+OBS: Qualquer alteração irei postar por aqui, fica a critério dropar o BD local e criar novamente ou apenas inserir ou modificar os campos necessários no servidor de vcs.
+
+    ////////////////////////////////////////////////////
+
+create table teste (
+    id int auto_increment primary key,
+    nome varchar(100) not null,
+    email varchar(100) not null,
+    nome_usuario varchar(100) not null,
+    senha varchar(100) not null,
+    administrador tinyint(0) not null
+);
+
+    ////////////////////////////////////////////////////

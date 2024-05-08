@@ -4,130 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chaves de Torneio</title>
-<style>
-    body, html {
-        height: 80%;
-        margin: 0;
-        padding: 0;
-        position: relative; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #6b6868;
-    }
-
-    .conteudo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        height: 50%;
-        padding: 150px;
-        position: relative; 
-    }
-
-    .linha-cima {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        position: relative; 
-    }
-
-    .linha-meio {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px; 
-        position: relative;
-    }
-
-    .linha-baixo {
-        display: flex;
-        justify-content: center;
-        position: relative; 
-    }
-
-    .quadrado {
-        width: 80px;
-        height: 80px;
-        border: 2px solid black;
-        background-color: rgb(199, 198, 198);
-        margin-right: 10px; 
-        position: relative; 
-        display: flex;
-    align-items: center;
-    justify-content: center; 
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    border-radius: 1rem;
-    }
-    .texto {
-    font-size: 30px;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%) translateX(-100%);
-    left: 50%;
-}
-    .especial-quadrado {
-        margin-right: 50px; 
-    }
-    .botao-conteudo {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .botao {
-        margin-top: 10px;
-        cursor: pointer;
-        padding: 5px 10px;
-        background-color: #635f5f;
-        border: solid;
-        border-color: rgb(56, 49, 49);
-        border-radius: 5px;
-        margin-left: 20px;
-    }
-    .linha-baixo .quadrado-conteudo {
-    display: center;
-    flex-direction: column;
-    align-items: center;
-     
-}
-
-.linha-baixo .botao {
-    margin-top: 10px; 
-}
-    .mensagem-vitoria {
-        position: absolute;
-        top: -150px; 
-        left: 55%;
-        transform: translateX(-50%);
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .botao:hover {
-    cursor: pointer; 
-    background-color: #56db8e;
-    border-color: rgb(0, 0, 0); 
-}
-.sortear-botao {
-        margin-top: 20px;
-        margin-right: 25px;
-    }
-    .titulo {
-        position: absolute;
-        top: -150px; 
-        left: 100%;
-        transform: translateX(-235%);
-        font-size: 50px;
-        font-weight: bold;
-    }
-</style>
+<link rel="stylesheet" href="css/Chaves.css" />
+<link rel="stylesheet" href="css/Partida.css" />
 </head>
 <body>
 <div class="conteudo">
     <div class="linha-cima">
         <div class="titulo" style="left: 0;">Torneio X</div>
+        <div id="cronometro">00:00:00</div>
         <div class="texto" style="left: 0;">Finais</div>
         <div class="quadrado-conteudo">
             <div class="quadrado especial-quadrado"></div>
@@ -161,136 +45,48 @@
         <div class="texto" style="left: 0;">Eliminatorias</div>
         <div class="quadrado-conteudo">
             <div class="quadrado"></div>
-            <button class="botao" onclick="semiFinais(1)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(0);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado especial-quadrado"></div>
-            <button class="botao" onclick="semiFinais(2)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(0);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado"></div>
-            <button class="botao" onclick="semiFinais(3)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(1);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado especial-quadrado"></div>
-            <button class="botao" onclick="semiFinais(4)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(1);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado"></div>
-            <button class="botao" onclick="semiFinais(5)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(2);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado especial-quadrado"></div>
-            <button class="botao" onclick="semiFinais(6)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(2);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado"></div>
-            <button class="botao" onclick="semiFinais(7)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(3);">Pontuar</button>
         </div>
         <div class="quadrado-conteudo">
             <div class="quadrado"></div>
-            <button class="botao" onclick="semiFinais(8)">Pontuar</button>
+            <button class="botao" onclick="mostrarSegundaTela(3);">Pontuar</button>
         </div>
     </div>
     <button class="botao sortear-botao" onclick="sortearConfrontos()">Sortear Confrontos</button> <!-- Botão centralizado -->
 </div>
-
-<script>
-function sortearConfrontos() {
-    const limparQuadrado = document.querySelectorAll('.quadrado');
-    limparQuadrado.forEach(quadrado => {
-        quadrado.textContent = ''; 
-    });
-    const limparMensagensV = document.querySelectorAll('.mensagem-vitoria');
-    limparMensagensV.forEach(mensagem => {
-        mensagem.remove();
-    });
-    const times = ["escudotesteS", "escudoteste2S", "escudotesteS", "escudoteste2S", "escudotesteS", "escudoteste2S", "escudotesteS", "escudoteste2S"];
-    const confrontos = [];
-
-    
-    while (times.length > 1) {
-        const indiceA = Math.floor(Math.random() * times.length);
-        let timeA = times.splice(indiceA, 1)[0];
-
-        const indiceB = Math.floor(Math.random() * times.length);
-        let timeB = times.splice(indiceB, 1)[0];
-
-        confrontos.push([timeA, timeB]);
-    }
-
-    
-    const linhaBaixo = document.querySelector('.linha-baixo');
-    const quadrados = linhaBaixo.getElementsByClassName('quadrado');
-    for (let i = 0; i < confrontos.length; i++) {
-        quadrados[i * 2].innerHTML = `<img src="img/${confrontos[i][0]}.jpg" alt="${confrontos[i][0]}">`;
-        quadrados[i * 2 + 1].innerHTML = `<img src="img/${confrontos[i][1]}.jpg" alt="${confrontos[i][1]}">`;
-        quadrados[i * 2].addEventListener('click', () => semiFinais(confrontos[i][0]));
-        quadrados[i * 2 + 1].addEventListener('click', () => semiFinais(confrontos[i][1]));
-    }
-    
-}
-
-function semiFinais(time) {
-    const linhaBaixo = document.querySelector('.linha-baixo');
-    const quadrados = linhaBaixo.querySelectorAll('.quadrado');
-    const linhaMeio = document.querySelector('.linha-meio');
-    const meioQuadrados = linhaMeio.querySelectorAll('.quadrado');
-
-    for (let i = 0; i < quadrados.length; i++) {
-        if (i === time - 1 && quadrados[i].innerHTML) {
-            for (let j = 0; j < meioQuadrados.length; j++) {
-                if (!meioQuadrados[j].innerHTML) {
-                    meioQuadrados[j].innerHTML = quadrados[i].innerHTML;
-                    quadrados[i].innerHTML = '';
-                    break;
-                }
-            }
-            break;
-        }
-    }
-}
-function moverFinal(time){
-const linhaMeio = document.querySelector('.linha-meio');
-const quadrados = linhaMeio.querySelectorAll('.quadrado');
-const linhaCima = document.querySelector('.linha-cima');
-const cimaQuadrados = linhaCima.querySelectorAll('.quadrado');
-
-for (let i = 0; i < quadrados.length; i++) {
-        if (i === time - 1 && quadrados[i].innerHTML) {
-            for (let j = 0; j < cimaQuadrados.length; j++) {
-                if (!cimaQuadrados[j].innerHTML) {
-                    cimaQuadrados[j].innerHTML = quadrados[i].innerHTML;
-                    quadrados[i].innerHTML = '';
-                    break;
-                }
-            }
-            break;
-        }
-    }
-
-}
-function DecidirVencedor(botao) {
-    
-    const quadrado = botao.previousElementSibling;
-    const timeVencedor = quadrado.innerHTML;
-
-    
-    const mensagemVitoria = document.createElement('p');
-    mensagemVitoria.innerHTML = `${timeVencedor} Vencedor`;
-    mensagemVitoria.classList.add('mensagem-vitoria');
-
-   
-    quadrado.parentNode.insertBefore(mensagemVitoria, quadrado);
-}
-
-
-const botoesTopRow = document.querySelectorAll('.linha-cima .botao');
-botoesTopRow.forEach(botao => {
-    botao.addEventListener('click', () => {
-        DecidirVencedor(botao);
-    });
-});
-</script>
+<div id="modal" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharModal()">&times;</span>
+        <h2>Tela de Estatisticas</h2>
+        <div id="conteudo-modal">
+        </div>
+    </div>
+</div>
+<script src="js/Chaves.js"></script>
+<script src="js/Partida.js"></script>
 </body>
 </html>
