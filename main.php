@@ -128,13 +128,9 @@
             <p>Estatísticas</p>
           </div>
         </div>
-<<<<<<< HEAD:administrador/main.html
       </div> 
     
     
-=======
-      </div>
->>>>>>> b2a9879b161cd6f54904897b033888444dc50ee8:main.php
     </div>
 
     <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>

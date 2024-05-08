@@ -88,6 +88,7 @@ function redefinirNomeCompleto() {
 function retornaEditaImgUsuario() {
   let containerUsuario = document.getElementById("conteinerUsuario");
 
+  
   let NewHtml = ` <div id="editorImgUsuario" class="edicao">
   <div class="topoBotoes">
     <button class="buttonSair bi bi-x-lg" onclick="sair(2)"></button>
