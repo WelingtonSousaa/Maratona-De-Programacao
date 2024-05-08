@@ -13,23 +13,23 @@ function retornaNumeros() {
   ></button>
 </div>
 <div>
-  <p class="infoEstatisticas">Quantidade de maratonas criadas:</p>
+  <p class="infoEstatisticas">Maratonas criadas:</p>
   <p>23</p>
 </div>
 <div>
-  <p class="infoEstatisticas">Quantidade de maratonas finalizadas:</p>
+  <p class="infoEstatisticas">Maratonas finalizadas:</p>
   <p>21</p>
 </div>
 <div>
-  <p class="infoEstatisticas">Quantidade de times criados:</p>
+  <p class="infoEstatisticas">Times criados:</p>
   <p>123</p>
 </div>
 <div>
-  <p class="infoEstatisticas">Quantidade de usuarios criados:</p>
+  <p class="infoEstatisticas">Usuários criados:</p>
   <p>213</p>
 </div>
 <div>
-  <p class="infoEstatisticas">Quantidade de usuarios ativos:</p>
+  <p class="infoEstatisticas">Usuários ativos:</p>
   <p>5</p>
 </div>
 <button>probabilidades</button>`;

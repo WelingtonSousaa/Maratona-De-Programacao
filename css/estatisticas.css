@@ -1,11 +1,19 @@
 #estatisticas {
-  position: absolute;
-  top: 30%;
-  left: 40%;
-  width: 30%;
-  background-color: gray;
-  padding-bottom: 1rem;
-  border-radius: 1rem;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 30%;
+background: rgb(192, 192, 192);
+background: linear-gradient(
+  70deg,
+  rgba(192, 192, 192, 1) 30%,
+  rgba(160, 160, 160, 1) 66%,
+  rgba(128, 128, 128, 1) 100%
+);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leve sombra */
+padding-bottom: 1rem;
+border-radius: 1rem;
 
   & > div:not(:nth-child(1)) {
     font-size: 1.1rem;
@@ -17,7 +25,7 @@
   & > button {
     cursor: pointer;
     color: white;
-    background-color: blueviolet;
+    background-color: #02084B;
     border: none;
     border-radius: 0.5rem;
 
@@ -31,7 +39,7 @@
 
     &:active {
       color: rgb(222, 220, 220);
-      background-color: rgb(113, 32, 188);
+      background-color: rgb(183, 119, 28);
     }
   }
 }
