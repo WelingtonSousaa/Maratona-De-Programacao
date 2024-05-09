@@ -4,7 +4,9 @@ function sairEstatisticas() {
   global.removeChild(estatisticas);
 }
 
-function retornaNumeros() {
+function retornaEmNumeros() {
+  let estatisticas = document.getElementById("estatisticas");
+
   let newHtml = `<div class="topoBotoes">
   <button
     class="buttonSair bi bi-x-lg"
@@ -32,14 +34,54 @@ function retornaNumeros() {
   <p class="infoEstatisticas">Quantidade de usuarios ativos:</p>
   <p>5</p>
 </div>
-<button>probabilidades</button>`;
-  return newHtml;
+<button onclick="retornaPorcentagens()">Em porcentagens</button>`;
+  estatisticas.innerHTML = newHtml;
+}
+
+function retornaPorcentagens() {
+  let estatisticas = document.getElementById("estatisticas");
+  let newHtml = `<div class="topoBotoes">
+  <button
+    class="buttonSair bi bi-x-lg"
+    id="SairInforUsuario"
+    onclick="sairEstatisticas()"
+  ></button>
+</div>
+
+<div>
+  <p class="infoEstatisticas">maratonas finalizadas:</p>
+  <p>91,30%</p>
+</div>
+
+<div>
+  <p class="infoEstatisticas">usuarios ativos:</p>
+  <p>2,34%</p>
+</div>
+<button onclick="retornaEmNumeros()">Em números</button>`;
+  estatisticas.innerHTML = newHtml;
 }
 
 function retornaPagEstatisticas() {
   let global = document.getElementById("global");
   let newHtml = `<div id="estatisticas">
-  ${retornaNumeros()}
+  <div class="topoBotoes">
+  <button
+    class="buttonSair bi bi-x-lg"
+    id="SairInforUsuario"
+    onclick="sairEstatisticas()"
+  ></button>
+</div>
+
+<div>
+  <p class="infoEstatisticas">maratonas finalizadas:</p>
+  <p>91,30%</p>
+</div>
+
+<div>
+  <p class="infoEstatisticas">usuarios ativos:</p>
+  <p>2,34%</p>
+</div>
+<button onclick="retornaEmNumeros()">Em números</button>
 </div>`;
 
   global.innerHTML += newHtml;
