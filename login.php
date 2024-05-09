@@ -37,6 +37,6 @@
     </div>
 
     <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/login.js"></script>
+    <script src="assets/js/script_login.js"></script>
   </body>
 </html>

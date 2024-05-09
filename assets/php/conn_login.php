@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "teste";
+$dbname = "projeto"; 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -18,7 +18,7 @@ $nome_usuario = $_POST['nome_usuario'];
 $senha = $_POST['senha'];
 
 // Consulta SQL para verificar se o usuário e a senha correspondem
-$sql = "SELECT * FROM teste WHERE nome_usuario='$nome_usuario' AND senha='$senha'";
+$sql = "SELECT * FROM usuarios WHERE nome_usuario='$nome_usuario' AND senha='$senha'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

@@ -1,15 +1,103 @@
-Segue abaixo o código atual para criação do banco de dados
-OBS: Qualquer alteração irei postar por aqui, fica a critério dropar o BD local e criar novamente ou apenas inserir ou modificar os campos necessários no servidor de vcs.
+OBS: Qualquer alteração será postada aqui
 
     ////////////////////////////////////////////////////
 
-create table teste (
-    id int auto_increment primary key,
-    nome varchar(100) not null,
+-- Criar o BD Projeto
+create database projeto;
+
+-- Usa o BD Projetp
+use projeto;
+
+-- Cria a tabela Usuarios
+create table usuarios (
+	id int auto_increment primary key,
+    nome_completo varchar(100) not null,
     email varchar(100) not null,
     nome_usuario varchar(100) not null,
     senha varchar(100) not null,
-    administrador tinyint(0) not null
+    administrador tinyint(0) not null,
+    avatar varchar(100)
 );
 
+-- Verifica a estrutura da tabela usuarios
+desc usuarios;
+
+-- Inseri alguns usuários para teste
+INSERT INTO usuarios (nome_completo, email, nome_usuario, senha, administrador, avatar)
+VALUES
+('Fantasma 1', 'fantasma1@example.com', 'fantasma1', 'senha1', 0, 'https://thumbs2.imgbox.com/a6/ac/f1ce73Cz_t.png'),
+('Fantasma 2', 'fantasma2@example.com', 'fantasma2', 'senha2', 1, 'https://thumbs2.imgbox.com/df/e8/2jvorI5D_t.png'),
+('Fantasma 3', 'fantasma3@example.com', 'fantasma3', 'senha3', 0, 'https://thumbs2.imgbox.com/02/ac/ZaNLoiH9_t.png'),
+('Fantasma 4', 'fantasma4@example.com', 'fantasma4', 'senha4', 1, 'https://thumbs2.imgbox.com/53/21/0H1wF1kB_t.png'),
+('Fantasma 5', 'fantasma5@example.com', 'fantasma5', 'senha5', 0, 'https://thumbs2.imgbox.com/d6/72/vnAe51Yp_t.png'),
+('Fantasma 6', 'fantasma6@example.com', 'fantasma6', 'senha6', 1, 'https://thumbs2.imgbox.com/37/f5/QApGgoVa_t.png'),
+('Fantasma 7', 'fantasma7@example.com', 'fantasma7', 'senha7', 0, 'https://thumbs2.imgbox.com/b9/41/ZRWiPWFn_t.png'),
+('Fantasma 8', 'fantasma8@example.com', 'fantasma8', 'senha8', 1, 'https://thumbs2.imgbox.com/48/f5/kO8FDBcN_t.png'),
+('Fantasma 9', 'fantasma9@example.com', 'fantasma9', 'senha9', 0, 'https://thumbs2.imgbox.com/1a/03/ByaS7beu_t.png'),
+('Fantasma 10', 'fantasma10@example.com', 'fantasma10', 'senha10', 1, 'https://thumbs2.imgbox.com/3a/7c/GKN2iIWD_t.png'),
+('Fantasma 11', 'fantasma11@example.com', 'fantasma11', 'senha11', 0, 'https://thumbs2.imgbox.com/17/60/raeUAcbH_t.png'),
+('Fantasma 12', 'fantasma12@example.com', 'fantasma12', 'senha12', 1, 'https://thumbs2.imgbox.com/36/f6/hLc975JL_t.png'),
+('Fantasma 13', 'fantasma13@example.com', 'fantasma13', 'senha13', 0, 'https://thumbs2.imgbox.com/01/67/Q9QfuR8F_t.png'),
+('Fantasma 14', 'fantasma14@example.com', 'fantasma14', 'senha14', 1, 'https://thumbs2.imgbox.com/d2/79/ILd3JtMz_t.png'),
+('Fantasma 15', 'fantasma15@example.com', 'fantasma15', 'senha15', 0, 'https://thumbs2.imgbox.com/06/16/qpaXN1VS_t.png');
+
+-- Verifica se os usuários foram inseridos com sucesso
+select * from usuarios;
+
+
+
     ////////////////////////////////////////////////////
+
+
+
+-- Criar o banco de dados imagens
+create database imagens;
+
+-- Usar o banco de dados imagens
+use imagens;
+
+    ===================
+-- criar tabela imagens
+create table imagens(
+id int auto_increment primary key,
+imagem varchar(200) not null
+);
+    ===================
+
+-- verificar a estrutura da tabela images
+desc imagens;
+
+-- inserir os avatares na tabela imagens
+INSERT INTO imagens (imagem) VALUES
+('https://thumbs2.imgbox.com/a6/ac/f1ce73Cz_t.png'),
+('https://thumbs2.imgbox.com/df/e8/2jvorI5D_t.png'),
+('https://thumbs2.imgbox.com/02/ac/ZaNLoiH9_t.png'),
+('https://thumbs2.imgbox.com/53/21/0H1wF1kB_t.png'),
+('https://thumbs2.imgbox.com/d6/72/vnAe51Yp_t.png'),
+('https://thumbs2.imgbox.com/37/f5/QApGgoVa_t.png'),
+('https://thumbs2.imgbox.com/b9/41/ZRWiPWFn_t.png'),
+('https://thumbs2.imgbox.com/48/f5/kO8FDBcN_t.png'),
+('https://thumbs2.imgbox.com/1a/03/ByaS7beu_t.png'),
+('https://thumbs2.imgbox.com/3a/7c/GKN2iIWD_t.png'),
+('https://thumbs2.imgbox.com/17/60/raeUAcbH_t.png'),
+('https://thumbs2.imgbox.com/36/f6/hLc975JL_t.png'),
+('https://thumbs2.imgbox.com/01/67/Q9QfuR8F_t.png'),
+('https://thumbs2.imgbox.com/d2/79/ILd3JtMz_t.png'),
+('https://thumbs2.imgbox.com/06/16/qpaXN1VS_t.png'),
+('https://thumbs2.imgbox.com/e1/b0/QIuwkkyc_t.png'),
+('https://thumbs2.imgbox.com/0c/88/uWnfW00H_t.png'),
+('https://thumbs2.imgbox.com/59/16/4l7NwKK5_t.png'),
+('https://thumbs2.imgbox.com/1d/0a/5AC2m8PV_t.png'),
+('https://thumbs2.imgbox.com/e0/ed/vRRuF8vX_t.png'),
+('https://thumbs2.imgbox.com/bd/af/6TOaGfLa_t.png'),
+('https://thumbs2.imgbox.com/e2/06/XuNlT0Gr_t.png'),
+('https://thumbs2.imgbox.com/3d/c9/eLyHZLA1_t.jpg'),
+('https://thumbs2.imgbox.com/fe/a0/eoCUcBaz_t.jpg'),
+('https://thumbs2.imgbox.com/1a/48/xkiiMlA2_t.png'),
+('https://thumbs2.imgbox.com/0b/02/eBH979n8_t.png'),
+('https://thumbs2.imgbox.com/5e/9c/o36ZCpbL_t.png'),
+('https://thumbs2.imgbox.com/0b/bf/IVXjTp1z_t.png'),
+('https://thumbs2.imgbox.com/28/a0/r4mgkuIN_t.png');
+
+-- verificar se os dados foram inseridos com sucesso
+select * from imagens;

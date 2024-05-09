@@ -1,9 +1,9 @@
 <?php
     header('Content-Type: application/json');
 
-    $pdo = new PDO('mysql:host=localhost; dbname=teste', 'root', '');
+    $pdo = new PDO('mysql:host=localhost; dbname=projeto', 'root', '');
 
-    $stmt = $pdo->prepare('SELECT * FROM teste');
+    $stmt = $pdo->prepare('SELECT * FROM usuarios');
     $stmt ->execute();
 
     if($stmt ->rowCount() >=1){
@@ -11,4 +11,5 @@
     }else{
         echo json_encode('Nenhum usuário existente');
     }
+    
 ?>

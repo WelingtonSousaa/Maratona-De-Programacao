@@ -205,7 +205,7 @@ function criarElementosHTML(participantes) {
 
 function getParticipantes() {
   $.ajax({
-    url: 'http://localhost/projeto/assets/php/selecionar.php',
+    url: 'http://localhost/projeto/assets/php/requisicao_usuarios.php',
     method: 'GET',
     dataType: 'json'
   }).done(function (result) {

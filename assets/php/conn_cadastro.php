@@ -7,9 +7,9 @@
     $senha = $_POST['senha'];
     $administrador = $_POST['administrador'];
 
-    $pdo = new PDO('mysql:host=localhost; dbname=teste', 'root', '');
+    $pdo = new PDO('mysql:host=localhost; dbname=projeto', 'root', '');
 
-    $stmt = $pdo->prepare('INSERT INTO teste (nome_completo, email, nome_usuario, senha, administrador) VALUES (:na, :em, :nu, :se, :adm)');
+    $stmt = $pdo->prepare('INSERT INTO usuarios (nome_completo, email, nome_usuario, senha, administrador) VALUES (:na, :em, :nu, :se, :adm)');
     $stmt ->bindValue(':na', $nome_completo);
     $stmt ->bindValue(':em', $email);
     $stmt ->bindValue(':nu', $nome_usuario);

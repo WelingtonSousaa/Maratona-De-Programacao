@@ -95,6 +95,11 @@ h2 {
     margin-right: 1rem;
   }
 }
+
+#selecionado {
+  border: solid 3px orange;
+}
+
 .avatar {
   cursor: pointer;
   border: 3px solid transparent;
