@@ -1,7 +1,10 @@
 function RetornaPagRanking() {
   let global = document.getElementById("global");
   const newHtml = `<div id="ranking">
+  <div class="tituloEHome">
+  <button class="home bi bi-house-door-fill" onclick="retornaPagPrincipal()">home</button>
   <h2>OS MELHORES ESTÃO AQUI!</h2>
+  </div>
 
   <div id="inforMelhores">
     <p>O melhor time</p>

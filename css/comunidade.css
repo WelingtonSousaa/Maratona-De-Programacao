@@ -21,3 +21,11 @@
     font-weight: 600;
   }
 }
+.textoEHome {
+  display: flex;
+  align-items: center;
+  & > .home {
+    position: absolute;
+    left: 5%;
+  }
+}

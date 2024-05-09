@@ -43,7 +43,7 @@ function retornaInformacoesTime() {
   <div id="informacoesGeraisTime">
     <div id="conteinerEscudo">
       <img src="img/OIG1.jpeg" alt="" />
-      <button id="editaEscudo" class="bi bi-brush-fill" onclick="retornaEditaImgUsuario()"></button>
+      <button id="editaEscudo" class="bi bi-brush-fill" onclick="retornaEditaEscudoTime()"></button>
     </div>
     <div id="textos">
       <div id="abreviacao">
@@ -194,4 +194,69 @@ function sairEdicaoTime() {
   let editarTime = document.getElementById("editarTime");
 
   informacoesTime.removeChild(editarTime);
+}
+
+let idTrocaEscudo = "";
+
+function retornaEditaEscudoTime() {
+  let informacoesTime = document.getElementById("informacoesTime");
+  let newHtml = `<div id="editaEscudoTime">
+  <div class="topoBotoes">
+    <button
+      class="buttonSair bi bi-x-lg"
+      id="SairInforUsuario"
+      onclick="sairEdicaoEscudos()"
+    ></button>
+  </div>
+  <div id="trocaEscudos">
+    <img src="img/OIG1.jpeg" alt="" id="escudo01" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo02" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo03" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo04" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo05" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo06" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo07" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo08" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo09" class="opcaoEscudo" />
+    <img src="img/OIG1.jpeg" alt="" id="escudo10" class="opcaoEscudo" />
+  </div>
+
+  <button onclick="editaEscudo()">Editar</button>
+</div>`;
+  informacoesTime.innerHTML += newHtml;
+
+  const escudos = document.querySelectorAll(".opcaoEscudo");
+  escudos.forEach((escudo) => {
+    escudo.addEventListener("click", () => {
+      if (escudo.classList.contains("selecionado")) {
+        escudo.classList.remove("selecionado");
+        idTrocaEscudo = "";
+      } else {
+        escudos.forEach((escudo) => {
+          escudo.classList.remove("selecionado");
+        });
+
+        escudo.classList.add("selecionado");
+        idTrocaEscudo = escudo.id;
+      }
+    });
+  });
+}
+
+function editaEscudo() {
+  if (idTrocaEscudo === "") {
+    alert("nenhum escudo foi selecionado");
+  } else {
+    let resposta = confirm(
+      "Voce vai trocar seu escudo para esse, você tem certeza?"
+    );
+    if (resposta) {
+      retornaPagGerenciarTimes();
+    }
+  }
+}
+function sairEdicaoEscudos() {
+  let informacoesTime = document.getElementById("informacoesTime");
+  let editaEscudoTime = document.getElementById("editaEscudoTime");
+  informacoesTime.removeChild(editaEscudoTime);
 }

@@ -2,7 +2,10 @@ function retornaComunidade() {
   let global = document.getElementById("global");
   let newHtml = `
   <div id="comunidade">
+        <div class="textoEHome">
+        <button class="home bi bi-house-door-fill" onclick="retornaPagPrincipal()">home</button>
         <h1>VEJA O QUE ANDA ACONTECENDO!</h1>
+        </div>
         <div class="InforComunidade">
           <p>A maratona "insana" foi encerrada</p>
           <p>04/05/2024 13:54</p>

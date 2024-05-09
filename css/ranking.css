@@ -159,3 +159,7 @@ body {
     height: 15rem;
   }
 }
+.tituloEHome {
+  padding: 1rem 4rem;
+  display: flex;
+}
