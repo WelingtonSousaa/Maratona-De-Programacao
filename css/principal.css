@@ -13,7 +13,7 @@
   border-radius: 2rem;
   padding: 2rem 2rem 2rem 2rem;
   color: white;
-  background-color: rgb(78, 78, 173);
+  background-color: #02084B;
   margin: auto;
   & > p {
     font-size: 2rem;
@@ -37,7 +37,7 @@
     }
   }
   & > button:nth-child(1) {
-    background-color: rgb(11, 231, 11);
+    background-color: #FF9F00;
   }
 }
 h2 {
