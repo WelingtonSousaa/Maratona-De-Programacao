@@ -86,16 +86,6 @@ function verificarPreenchimentoMaratona(event, num) {
         .value.trim();
       apertouProsseguir();
       retornaPagEscolherTimes();
-
-      const times = document.querySelectorAll(".times");
-      times.forEach((time) => {
-        const timeId = time.id;
-        if (timesSelecionados.includes(timeId)) {
-          time.classList.add("selecionado");
-        } else {
-          time.classList.remove("selecionado");
-        }
-      });
     } else {
       alert("Por favor, preencha todos os campos.");
     }
@@ -203,142 +193,47 @@ function retornaPagPremiacaoETempo() {
 
 function retornaPagEscolherTimes() {
   let conteinerCriaTime = document.getElementById("conteinerCriaMaratona");
-  let NewHtml = ` <div id="times">
-  <div class="time" id="time01">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time02">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time03">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time04">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time05">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time06">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time07">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time08">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time09">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  <div class="time" id="time10">
-    <img
-      src="https://th.bing.com/th/id/OIP.Z4bqFXAzNTYPRzWFkQsZPQAAAA?rs=1&pid=ImgDetMain"
-      alt=""
-    />
-    <p>nome time</p>
-    <p>abre.time</p>
-  </div>
-  
-</div>
-<div id="espacoBotoes">
-  <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(2)">Voltar</button>
-  <button class="prossegir" id="prossegir02">PROSSEGUIR</button>
-</div>
+  let NewHtml = `<div id="times"></div>`;
+
+  // Botões de voltar e prosseguir
+  NewHtml += `
+    <div id="espacoBotoes">
+      <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(2)">Voltar</button>
+      <button class="prossegir" id="prossegir02">PROSSEGUIR</button>
+    </div>
   `;
+
   conteinerCriaTime.innerHTML = NewHtml;
 
-  // Seleciona os elementos .time e adiciona os ouvintes de evento após a inserção no DOM
-  const times = document.querySelectorAll(".time");
-  times.forEach((time) => {
-    const timeId = time.id;
-    // Verifica se o time está na lista de times selecionados e aplica a classe 'selecionado' se necessário
-    if (timesSelecionados.includes(timeId)) {
-      time.classList.add("selecionado");
-    }
-    // Adiciona um ouvinte de evento para cada time
-    time.addEventListener("click", () => {
-      const estaSelecionado = time.classList.contains("selecionado");
-      if (timesSelecionados.length >= 8 && !estaSelecionado) {
-        const primeiroSelecionadoId = timesSelecionados.shift();
-        document
-          .getElementById(primeiroSelecionadoId)
-          .classList.remove("selecionado");
-        timesSelecionados.push(timeId);
-        time.classList.add("selecionado");
-      } else if (estaSelecionado) {
-        time.classList.remove("selecionado");
-        timesSelecionados = timesSelecionados.filter(
-          (selecionadoId) => selecionadoId !== timeId
-        );
-      } else {
-        timesSelecionados.push(timeId);
-        time.classList.add("selecionado");
-      }
-    });
-  });
+  // Faz a requisição para obter os times do PHP
+  fetch('http://localhost/projeto/assets/php/requisicao_times.php')
+    .then(response => response.json())
+    .then(data => {
+      let timesHtml = '';
+      // Itera sobre os times para criar os elementos HTML dinamicamente
+      data.forEach(time => {
+        timesHtml += `
+          <div class="time" id="time${time.id}">
+            <img src="${time.escudo}" alt="${time.nome}">
+            <p>${time.nome}</p>
+            <p>${time.abreviacao}</p>
+          </div>
+        `;
+      });
+      // Atualiza o conteúdo do elemento #times com os times dinâmicos
+      conteinerCriaTime.querySelector('#times').innerHTML = timesHtml;
 
+      // Adiciona o evento de clique aos times
+      adicionarEventoCliqueTimes();
+    })
+    .catch(error => {
+      console.error('Erro ao carregar os times:', error);
+    });
+
+  // Adiciona o evento de clique aos botões de prosseguir
   const botaoProsseguir = document.getElementById("prossegir02");
   botaoProsseguir.addEventListener("click", () => {
-    // Verifica o número de times selecionados
-    const numeroTimes = timesSelecionados.length;
-    if (numeroTimes < 2 || numeroTimes > 8) {
-      alert("Selecione entre 2 e 8 Times para sua equipe.");
-    } else {
-      apertouProsseguir();
-      retornaPagConcluirMaratona();
-
-      // caso o usuario tenha voltado, recarrega o escudo selecionado
-      const timesSelecionado = document.getElementById(timesSelecionados);
-      if (timesSelecionado) {
-        timesSelecionado.classList.add("time selecionado");
-      }
-    }
+    // Adicione aqui o código para prosseguir para a próxima etapa, se necessário
   });
 }
 
@@ -358,7 +253,6 @@ function retornaPagCriarMaratona() {
         <span id="span02" class="proximos"></span>
         <span id="span03" class="proximos"></span>
         <span id="span04" class="proximos"></span>
-        
       </div>
     </div>
   </div>
@@ -373,4 +267,46 @@ function retornaPagCriarMaratona() {
 `;
 
   global.innerHTML = NewHtml;
+}
+
+function adicionarEventoCliqueTimes() {
+  const times = document.querySelectorAll('.time');
+  times.forEach(time => {
+    time.addEventListener('click', () => {
+      const estaSelecionado = time.classList.contains("selecionado");
+      if (timesSelecionados.length >= 8 && !estaSelecionado) {
+        const primeiroSelecionadoId = timesSelecionados.shift();
+        document
+          .getElementById(primeiroSelecionadoId)
+          .classList.remove("selecionado");
+        timesSelecionados.push(time.id);
+        time.classList.add("selecionado");
+      } else if (estaSelecionado) {
+        time.classList.remove("selecionado");
+        timesSelecionados = timesSelecionados.filter(
+          (selecionadoId) => selecionadoId !== time.id
+        );
+      } else {
+        timesSelecionados.push(time.id);
+        time.classList.add("selecionado");
+      }
+    });
+  });
+  const botaoProsseguir = document.getElementById("prossegir02");
+  botaoProsseguir.addEventListener("click", () => {
+    // Verifica o número de times selecionados
+    const numeroTimes = timesSelecionados.length;
+    if (numeroTimes < 2 || numeroTimes > 8) {
+      alert("Selecione entre 2 e 8 Times para sua equipe.");
+    } else {
+      apertouProsseguir();
+      retornaPagConcluirMaratona();
+
+      // caso o usuario tenha voltado, recarrega o escudo selecionado
+      const timesSelecionado = document.getElementById(timesSelecionados);
+      if (timesSelecionado) {
+        timesSelecionado.classList.add("time selecionado");
+      }
+    }
+  });
 }

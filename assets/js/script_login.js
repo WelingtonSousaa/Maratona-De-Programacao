@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $('#login-form').submit(function (e) {
         e.preventDefault();
@@ -13,7 +14,7 @@ $(document).ready(function () {
         }).done(function (response) {
             if (response.success) {
                 $('#login-message').text('Login bem-sucedido!');
-                // prosseguir aq
+                window.location.href="http://localhost/projeto/main.php"
             } else {
                 $('#login-message').text('Nome de usuário ou senha incorretos.');
             }
