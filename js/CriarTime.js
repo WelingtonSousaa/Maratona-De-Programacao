@@ -1,7 +1,7 @@
 let usuariosSelecionados = [];
 let nomeEquipe = "";
 let abreviacaoTime = "";
-let escudoSelecionadoId = "";
+let escudoSelecionadoLink = "";
 
 function retornaPagConcluido() {
   let conteinerCriaTime = document.getElementById("conteinerCriaTime");
@@ -15,66 +15,105 @@ function retornaPagConcluido() {
 </div>`;
   conteinerCriaTime.innerHTML = NewHtml;
 }
+
 function concluirCriacaoTime() {
-  // Retorna para a tela principal
-  retornaPagPrincipal();
+  // Recupera os valores necessários para a criação do time
+  var nome = nomeEquipe;
+  var abreviacao = abreviacaoTime;
+  var escudo = escudoSelecionadoLink;
+  var participantes = usuariosSelecionados;
 
-  // Exibe a mensagem de confirmação
-  alert(`Time "${nomeEquipe}" foi criado com sucesso!`);
+  // Executa a requisição AJAX
+  $.ajax({
+    url: "http://localhost/projeto/assets/php/criar_time.php",
+    method: "POST",
+    data: {
+      nome: nome,
+      abreviacao: abreviacao,
+      escudo: escudo,
+      participantes: participantes
+    },
+    dataType: "json",
+    success: function (result) {
+      // Exibe uma mensagem de sucesso
+      alert(`Time "${nome}" foi criado com sucesso!`);
 
-  // Esvazia as variáveis
-  usuariosSelecionados = [];
-  nomeEquipe = "";
-  abreviacaoTime = "";
-  escudoSelecionadoId = "";
+      // Esvazia as variáveis
+      usuariosSelecionados = [];
+      nomeEquipe = "";
+      abreviacaoTime = "";
+      escudoSelecionadoLink = "";
+
+      // Retorna para a tela principal
+      retornaPagPrincipal();
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr.responseText); // Exibe o erro no console
+      alert("Erro ao criar o time. Por favor, tente novamente."); // Exibe uma mensagem de erro
+    }
+  });
+  escolherEscudo();
 }
 
 function retornaPagEscolherEscudo() {
   let conteinerCriaTime = document.getElementById("conteinerCriaTime");
-  let NewHtml = `
-    <div id="escudos">
-      <div class="escudo" id="escudo01"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo02"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo03"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo04"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo05"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo06"><img src="img/OIG1.jpeg" alt="" /></div>
-      <div class="escudo" id="escudo07"><img src="img/OIG1.jpeg" alt="" /></div>
-    </div>
-    <div id="espacoBotoes">
-      <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(2)" >Voltar</button>
-      <button class="prossegir">PROSSEGUIR</button>
-    </div>
-  `;
-  conteinerCriaTime.innerHTML = NewHtml;
+  // Executa a requisição AJAX
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "http://localhost/projeto/assets/php/requisicao_escudos.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Manipula os dados JSON retornados
+      let escudos = JSON.parse(xhr.responseText);
 
-  // Seleciona os elementos .escudo e adiciona os ouvintes de evento após a inserção no DOM
-  const escudos = document.querySelectorAll(".escudo");
-  escudos.forEach((escudo) => {
-    escudo.addEventListener("click", () => {
-      // Remove a classe 'selecionado' de todos os escudos
-      escudos.forEach((escudo) => {
-        escudo.classList.remove("selecionado");
+      // Cria o HTML dinamicamente com as imaagens recebidas
+      let escudosHtml = '';
+      escudos.forEach(function (escudo, index) {
+        escudosHtml += `<div class="escudo" id="escudo${index + 1}"><img src="${escudo.escudo}" alt="" /></div>`;
       });
-      // Adiciona a classe 'selecionado' apenas ao escudo clicado
-      escudo.classList.add("selecionado");
-      // Armazena o ID do escudo selecionado na variável
-      escudoSelecionadoId = escudo.id;
-    });
-  });
 
-  const botaoProsseguir = document.querySelector("#espacoBotoes .prossegir");
-  botaoProsseguir.addEventListener("click", () => {
-    if (!escudoSelecionadoId) {
-      alert("Por favor, selecione um escudo para prosseguir.");
-    } else {
-      apertouProsseguir();
-      retornaPagConcluido();
+      let NewHtml = `
+        <div id="escudos">
+          ${escudosHtml}
+        </div>
+        <div id="espacoBotoes">
+          <button class="voltar bi bi-arrow-left" onclick="apertouVoltar(2)">Voltar</button>
+          <button class="prossegir">PROSSEGUIR</button>
+        </div>
+      `;
+
+      conteinerCriaTime.innerHTML = NewHtml;
+
+      // Seleciona os elementos .escudo e adiciona os ouvintes de evento após a inserção no DOM
+      const escudosElementos = document.querySelectorAll(".escudo");
+      escudosElementos.forEach((escudo) => {
+        escudo.addEventListener("click", () => {
+          // Remove a classe 'selecionado' de todos os escudos
+          escudosElementos.forEach((escudo) => {
+            escudo.classList.remove("selecionado");
+          });
+          // Adiciona a classe 'selecionado' apenas ao escudo clicado
+          escudo.classList.add("selecionado");
+          // Obtém o link da imagem do escudo selecionado
+          escudoSelecionadoLink = escudo.querySelector("img").src;
+        });
+
+      });
+
+      const botaoProsseguir = document.querySelector("#espacoBotoes .prossegir");
+      botaoProsseguir.addEventListener("click", () => {
+        if (!escudoSelecionadoLink) {
+          alert("Por favor, selecione um escudo para prosseguir.");
+        } else {
+          apertouProsseguir();
+          retornaPagConcluido();
+        }
+      });
     }
-  });
+  };
+  xhr.send();
 }
 
-// Função para verificar se todos os campos estão preenchidos e prosseguir
+// Verificar se todos os campos estão preenchidos e prosseguir
 function verificarPreenchimento(event) {
   event.preventDefault();
   const inputs = document.querySelectorAll("input");
@@ -166,11 +205,13 @@ function apertouVoltar(num) {
       break;
     case 3:
       retornaPagEscolherEscudo();
-      const escudoSelecionado = document.getElementById(escudoSelecionadoId);
+      // Verifica se há um escudo selecionado e adiciona a classe 'selecionado' a ele
+      const escudoSelecionado = document.querySelector(".escudo.selecionado");
       if (escudoSelecionado) {
         escudoSelecionado.classList.add("selecionado");
       }
       break;
+
     default:
       retornaPagCriarTime();
   }
@@ -190,67 +231,64 @@ function dadosPrincipais() {
 </form>`;
 }
 
+function escolherEscudo() {
+  $.ajax({
+    url: 'http://localhost/projeto/assets/php/requisicao_escudos.php',
+    method: 'GET',
+    dataType: 'json'
+  }).done(function (result) {
+    let avataresHTML = result.map(escudo => `
+      <div class="avatar" id="${escudo.id}">
+        <img src="${escudo.imagem}" alt="" />
+      </div>
+    `).join('\n');
+
+    criarElementosHTML(avataresHTML);
+  });
+}
 
 function criarElementosHTML(participantes) {
-  // Mapeando os dados para elementos HTML
   const usuariosHTML = participantes.map(usuario => `
     <div class="usuario" id="usuario${usuario.id}">
       <img src="${usuario.avatar ? usuario.avatar : 'caminho_para_imagem_padrao.jpg'}" alt="Avatar" />
       <p>${usuario.nome_usuario ? usuario.nome_usuario : 'Nome de Usuário'}</p>
     </div>
-  `);
+  `).join('\n');
+
   // Inserindo os elementos HTML gerados no DOM
-  $('#usuarios').html(usuariosHTML.join('\n'));
+  $('#usuarios').html(usuariosHTML);
+
+  // Agora que os elementos foram inseridos, adicione os ouvintes de eventos
+  adicionarOuvintes();
 }
 
-function getParticipantes() {
-  $.ajax({
-    url: 'http://localhost/projeto/assets/php/requisicao_usuarios.php',
-    method: 'GET',
-    dataType: 'json'
-  }).done(function (result) {
-    return criarElementosHTML(result);
-  });
-}
-
-function retornaPagEscolherParticipantes() {
-  let conteinerCriaTime = document.getElementById("conteinerCriaTime");
-  let NewHtml = ` <div id="usuarios">
-    ${getParticipantes()}
-</div>
-<div id="espacoBotoes">
-  <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(1)">Voltar</button>
-  <button class="prossegir" id="prossegir02">PROSSEGUIR</button>
-</div>
-  `;
-  conteinerCriaTime.innerHTML = NewHtml;
-  retornouParticipantes = true;
-
+function adicionarOuvintes() {
   // Seleciona os elementos .usuario e adiciona os ouvintes de evento após a inserção no DOM
   const usuarios = document.querySelectorAll(".usuario");
   usuarios.forEach((usuario) => {
     usuario.addEventListener("click", () => {
       const estaSelecionado = usuario.classList.contains("selecionado");
-      const usuarioId = usuario.id;
+      const usuarioId = usuario.id.substr(7); // Remove "usuario" do início do ID para obter apenas o número
 
-      if (usuariosSelecionados.length >= 5 && !estaSelecionado) {
-        const primeiroSelecionadoId = usuariosSelecionados.shift();
-        document
-          .getElementById(primeiroSelecionadoId)
-          .classList.remove("selecionado");
-        usuariosSelecionados.push(usuarioId);
-        usuario.classList.add("selecionado");
-      } else if (estaSelecionado) {
+      if (usuariosSelecionados.includes(usuarioId)) {
         usuario.classList.remove("selecionado");
         usuariosSelecionados = usuariosSelecionados.filter(
           (selecionadoId) => selecionadoId !== usuarioId
         );
       } else {
+        if (usuariosSelecionados.length >= 5 && !estaSelecionado) {
+          const primeiroSelecionadoId = usuariosSelecionados.shift();
+          document
+            .getElementById(`usuario${primeiroSelecionadoId}`)
+            .classList.remove("selecionado");
+        }
         usuariosSelecionados.push(usuarioId);
         usuario.classList.add("selecionado");
       }
     });
   });
+
+  // Adiciona o ouvinte de evento ao botão "Prosseguir"
   const botaoProsseguir = document.getElementById("prossegir02");
   botaoProsseguir.addEventListener("click", () => {
     // Verifica o número de participantes selecionados
@@ -262,11 +300,33 @@ function retornaPagEscolherParticipantes() {
       retornaPagEscolherEscudo();
 
       // caso o usuario tenha voltado, recarrega o escudo selecionado
-      const escudoSelecionado = document.getElementById(escudoSelecionadoId);
+      const escudoSelecionado = document.getElementById(escudoSelecionadoLink);
       if (escudoSelecionado) {
         escudoSelecionado.classList.add("selecionado");
       }
     }
+  });
+}
+
+function getParticipantes() {
+  return $.ajax({
+    url: 'http://localhost/projeto/assets/php/requisicao_usuarios.php',
+    method: 'GET',
+    dataType: 'json'
+  });
+}
+
+function retornaPagEscolherParticipantes() {
+  let conteinerCriaTime = document.getElementById("conteinerCriaTime");
+  conteinerCriaTime.innerHTML = `<div id="usuarios"></div>
+    <div id="espacoBotoes">
+      <button class="voltar bi bi-arrow-left" onclick= "apertouVoltar(1)">Voltar</button>
+      <button class="prossegir" id="prossegir02">PROSSEGUIR</button>
+    </div>`;
+
+  // Obtém os participantes e cria os elementos HTML quando a requisição estiver completa
+  getParticipantes().done(function (result) {
+    criarElementosHTML(result);
   });
 }
 

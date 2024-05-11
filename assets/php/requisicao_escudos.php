@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 $pdo = new PDO('mysql:host=localhost; dbname=imagens', 'root', '');
 
-$stmt = $pdo->prepare('SELECT * FROM avatars');
+$stmt = $pdo->prepare('SELECT * FROM escudos');
 $stmt->execute();
 
 if ($stmt->rowCount() >= 1) {

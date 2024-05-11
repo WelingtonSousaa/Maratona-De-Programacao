@@ -77,9 +77,9 @@ function escolherAvatar() {
     method: 'GET',
     dataType: 'json'
   }).done(function (result) {
-    let avataresHTML = result.map(avatar => `
-      <div class="avatar" id="${avatar.id}">
-        <img src="${avatar.imagem}" alt="" />
+    let avataresHTML = result.map(img => `
+      <div class="avatar" id="${img.id}">
+        <img src="${img.imagem}" alt="" />
       </div>
     `).join('\n');
 

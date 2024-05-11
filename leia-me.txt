@@ -1,14 +1,9 @@
-OBS: Qualquer alteração será postada aqui
+                                                    OBS: Qualquer alteração será postada aqui
 
-    ////////////////////////////////////////////////////
+//--//--//--//--//--> projeto <--//--//--//--//--//
 
--- Criar o BD Projeto
 create database projeto;
 
--- Usa o BD Projetp
-use projeto;
-
--- Cria a tabela Usuarios
 create table usuarios (
 	id int auto_increment primary key,
     nome_completo varchar(100) not null,
@@ -19,56 +14,41 @@ create table usuarios (
     avatar varchar(100)
 );
 
--- Verifica a estrutura da tabela usuarios
-desc usuarios;
+CREATE TABLE participantes (
+    time_id INT,
+    participante_id INT,
+    PRIMARY KEY (time_id, participante_id),
+    FOREIGN KEY (time_id) REFERENCES times(id),
+    FOREIGN KEY (participante_id) REFERENCES usuarios(id)
+);
 
--- Inseri alguns usuários para teste
-INSERT INTO usuarios (nome_completo, email, nome_usuario, senha, administrador, avatar)
-VALUES
-('Fantasma 1', 'fantasma1@example.com', 'fantasma1', 'senha1', 0, 'https://thumbs2.imgbox.com/a6/ac/f1ce73Cz_t.png'),
-('Fantasma 2', 'fantasma2@example.com', 'fantasma2', 'senha2', 1, 'https://thumbs2.imgbox.com/df/e8/2jvorI5D_t.png'),
-('Fantasma 3', 'fantasma3@example.com', 'fantasma3', 'senha3', 0, 'https://thumbs2.imgbox.com/02/ac/ZaNLoiH9_t.png'),
-('Fantasma 4', 'fantasma4@example.com', 'fantasma4', 'senha4', 1, 'https://thumbs2.imgbox.com/53/21/0H1wF1kB_t.png'),
-('Fantasma 5', 'fantasma5@example.com', 'fantasma5', 'senha5', 0, 'https://thumbs2.imgbox.com/d6/72/vnAe51Yp_t.png'),
-('Fantasma 6', 'fantasma6@example.com', 'fantasma6', 'senha6', 1, 'https://thumbs2.imgbox.com/37/f5/QApGgoVa_t.png'),
-('Fantasma 7', 'fantasma7@example.com', 'fantasma7', 'senha7', 0, 'https://thumbs2.imgbox.com/b9/41/ZRWiPWFn_t.png'),
-('Fantasma 8', 'fantasma8@example.com', 'fantasma8', 'senha8', 1, 'https://thumbs2.imgbox.com/48/f5/kO8FDBcN_t.png'),
-('Fantasma 9', 'fantasma9@example.com', 'fantasma9', 'senha9', 0, 'https://thumbs2.imgbox.com/1a/03/ByaS7beu_t.png'),
-('Fantasma 10', 'fantasma10@example.com', 'fantasma10', 'senha10', 1, 'https://thumbs2.imgbox.com/3a/7c/GKN2iIWD_t.png'),
-('Fantasma 11', 'fantasma11@example.com', 'fantasma11', 'senha11', 0, 'https://thumbs2.imgbox.com/17/60/raeUAcbH_t.png'),
-('Fantasma 12', 'fantasma12@example.com', 'fantasma12', 'senha12', 1, 'https://thumbs2.imgbox.com/36/f6/hLc975JL_t.png'),
-('Fantasma 13', 'fantasma13@example.com', 'fantasma13', 'senha13', 0, 'https://thumbs2.imgbox.com/01/67/Q9QfuR8F_t.png'),
-('Fantasma 14', 'fantasma14@example.com', 'fantasma14', 'senha14', 1, 'https://thumbs2.imgbox.com/d2/79/ILd3JtMz_t.png'),
-('Fantasma 15', 'fantasma15@example.com', 'fantasma15', 'senha15', 0, 'https://thumbs2.imgbox.com/06/16/qpaXN1VS_t.png');
+CREATE TABLE Times (
+    time_id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    abreviacao VARCHAR(20),
+    escudo VARCHAR(100)
+);
 
--- Verifica se os usuários foram inseridos com sucesso
-select * from usuarios;
+create table escudos (
+id int auto_increment primary key,
+escudo varchar(100) not null
+);
 
+//--//--//--//--//--> imagens <--//--//--//--//--//
 
-
-    ////////////////////////////////////////////////////
-
-
-
--- Criar o banco de dados imagens
 create database imagens;
 
--- Usar o banco de dados imagens
-use imagens;
-
-    ===================
--- criar tabela imagens
-create table imagens(
+create table avatars(
 id int auto_increment primary key,
 imagem varchar(200) not null
 );
-    ===================
 
--- verificar a estrutura da tabela images
-desc imagens;
+create table escudos (
+id int auto_increment primary key,
+escudo varchar(100) not null
+);
 
--- inserir os avatares na tabela imagens
-INSERT INTO imagens (imagem) VALUES
+INSERT INTO avatars (imagem) VALUES
 ('https://thumbs2.imgbox.com/a6/ac/f1ce73Cz_t.png'),
 ('https://thumbs2.imgbox.com/df/e8/2jvorI5D_t.png'),
 ('https://thumbs2.imgbox.com/02/ac/ZaNLoiH9_t.png'),
@@ -99,5 +79,25 @@ INSERT INTO imagens (imagem) VALUES
 ('https://thumbs2.imgbox.com/0b/bf/IVXjTp1z_t.png'),
 ('https://thumbs2.imgbox.com/28/a0/r4mgkuIN_t.png');
 
--- verificar se os dados foram inseridos com sucesso
-select * from imagens;
+INSERT INTO escudos (escudo) VALUES 
+('https://thumbs2.imgbox.com/c2/d8/kBSbCYDO_t.jpg'),
+('https://thumbs2.imgbox.com/6d/ff/la9bZIk4_t.jpg'),
+('https://thumbs2.imgbox.com/46/ad/b5CeKYky_t.jpg'),
+('https://thumbs2.imgbox.com/71/5f/aVLlmqwU_t.jpg'),
+('https://thumbs2.imgbox.com/c5/ca/zeaTNXDm_t.jpg'),
+('https://thumbs2.imgbox.com/62/c0/nsp7wPus_t.jpg'),
+('https://thumbs2.imgbox.com/73/37/Mlk7VPKC_t.jpg'),
+('https://thumbs2.imgbox.com/0c/e0/NEl8RzBZ_t.jpg'),
+('https://thumbs2.imgbox.com/73/95/ryRemi9c_t.jpg'),
+('https://thumbs2.imgbox.com/c4/7f/XDiOSM0p_t.jpg'),
+('https://thumbs2.imgbox.com/75/d2/asGTLIsC_t.jpg'),
+('https://thumbs2.imgbox.com/9a/3a/J2LFXTpL_t.jpg'),
+('https://thumbs2.imgbox.com/99/42/FNnEACZ7_t.jpg'),
+('https://thumbs2.imgbox.com/4e/65/f4dQseHG_t.jpg'),
+('https://thumbs2.imgbox.com/30/2c/T6T38Mkg_t.jpg'),
+('https://thumbs2.imgbox.com/f4/95/N66YOSBb_t.jpg'),
+('https://thumbs2.imgbox.com/c7/97/NY41SqZL_t.jpg'),
+('https://thumbs2.imgbox.com/a9/d2/Prxd3Mum_t.jpg'),
+('https://thumbs2.imgbox.com/e3/4a/aPvATTjN_t.jpg'),
+('https://thumbs2.imgbox.com/6a/54/WNuzAeht_t.jpg'),
+('https://thumbs2.imgbox.com/cd/5c/Jsw4tp7w_t.jpg');
