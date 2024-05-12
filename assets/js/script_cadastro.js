@@ -56,7 +56,7 @@ function criarElementosHTML(avataresHTML) {
   document.body.innerHTML = html;
 
   // Adicionar evento de clique aos avatares
-  $(document).on("click", ".avatar", function() {
+  $(document).on("click", ".avatar", function () {
     let id = $(this).attr("id");
     $(".avatar").removeClass("selecionado");
     $(this).addClass("selecionado");
@@ -65,7 +65,7 @@ function criarElementosHTML(avataresHTML) {
   });
 
   // Adicionar evento de clique ao botão finalizar
-  $("#finalizar").on("click", function() {
+  $("#finalizar").on("click", function () {
     finalizarEscolha();
   });
 }
@@ -73,7 +73,7 @@ function criarElementosHTML(avataresHTML) {
 // Solicitação AJAX e criar os elementos HTML dos avatares
 function escolherAvatar() {
   $.ajax({
-    url: 'http://localhost/projeto/assets/php/requisicao_imagens.php',
+    url: 'http://localhost/projeto/assets/php/requisicao_avatars.php',
     method: 'GET',
     dataType: 'json'
   }).done(function (result) {
@@ -99,10 +99,10 @@ function finalizarEscolha() {
     },
     dataType: "json"
   })
-  .done(function (data) {
-    console.log("Avatar enviado para o servidor:", data);
-  })
-  .fail(function (jqXHR, textStatus, errorThrown) {
-    console.error("Erro ao enviar avatar para o servidor:", errorThrown);
-  });
+    .done(function (data) {
+      console.log("Avatar enviado para o servidor:", data);
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+      console.error("Erro ao enviar avatar para o servidor:", errorThrown);
+    });
 }

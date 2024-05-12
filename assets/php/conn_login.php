@@ -22,6 +22,9 @@ $sql = "SELECT * FROM usuarios WHERE nome_usuario='$nome_usuario' AND senha='$se
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
+    // Autenticação bem-sucedida
+    session_start(); // Inicia a sessão
+    $_SESSION['authenticated'] = true; // Define uma variável de sessão para indicar autenticação
     echo json_encode(array('success' => true));
 } else {
     echo json_encode(array('success' => false));
