@@ -17,20 +17,6 @@ function retornaPagConcluirMaratona() {
   conteinerCriaMaratona.innerHTML = NewHtml;
 }
 
-function concluirCriacaoMaratona() {
-  // Retorna para a tela principal
-  retornaPagPrincipal();
-
-  // Exibe a mensagem de confirmação
-  alert(`Maratona "${nomeMaratona}" foi criado com sucesso!`);
-
-  // Esvazia as variáveis
-  timesSelecionados = [];
-  nomeMaratona = "";
-  premiacao = "";
-  descricaoMaratona = "";
-  tempoPartidas = "";
-}
 
 // Função para verificar se todos os campos estão preenchidos e prosseguir
 function verificarPreenchimentoMaratona(event, num) {
@@ -233,7 +219,20 @@ function retornaPagEscolherTimes() {
   // Adiciona o evento de clique aos botões de prosseguir
   const botaoProsseguir = document.getElementById("prossegir02");
   botaoProsseguir.addEventListener("click", () => {
-    // Adicione aqui o código para prosseguir para a próxima etapa, se necessário
+    // Verifica o número de times selecionados
+    const numeroTimes = timesSelecionados.length;
+    if (numeroTimes < 2 || numeroTimes > 8) {
+      alert("Selecione entre 2 e 8 Times para sua equipe.");
+    } else {
+      apertouProsseguir();
+      retornaPagConcluirMaratona();
+
+      // caso o usuario tenha voltado, recarrega o escudo selecionado
+      const timesSelecionado = document.getElementById(timesSelecionados);
+      if (timesSelecionado) {
+        timesSelecionado.classList.add("time selecionado");
+      }
+    }
   });
 }
 
@@ -310,3 +309,51 @@ function adicionarEventoCliqueTimes() {
     }
   });
 }
+
+function concluirCriacaoMaratona() {
+  var nome = nomeMaratona;
+  var descricao = descricaoMaratona;
+  var premio = premiacao;
+  var tempo = tempoPartidas;
+  var times = timesSelecionados.map(id => id.substring(4)); // Removendo o prefixo 'time' do ID para obter o ID do time
+
+  console.log("Dados da maratona:");
+  console.log("Nome:", nome);
+  console.log("Descrição:", descricao);
+  console.log("Premiação:", premio); // Mantenha o uso da variável global
+  console.log("Tempo de Partidas:", tempo);
+  console.log("Times Selecionados:", times);
+
+  $.ajax({
+    url: "http://localhost/projeto/assets/php/criar_maratona.php",
+    method: "POST",
+    data: {
+      nome: nome,
+      descricao: descricao,
+      premio: premio,
+      tempo: tempo,
+      times: times
+    },
+    dataType: "json",
+    success: function (result) {
+      if (result.success) {
+        alert(`Maratona "${nome}" foi criada com sucesso!`);
+        // Esvaziar as variáveis
+        timesSelecionados = [];
+        nomeMaratona = "";
+        premio = "";
+        descricaoMaratona = "";
+        tempoPartidas = "";
+        retornaPagPrincipal();
+      } else {
+        alert("Erro ao criar a maratona: " + result.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error(xhr.responseText);
+      alert("Erro ao criar a maratona. Por favor, tente novamente");
+    }
+  });
+}
+  
+
