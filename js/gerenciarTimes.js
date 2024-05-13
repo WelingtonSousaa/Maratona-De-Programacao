@@ -30,56 +30,53 @@ function sairInfoTime() {
   gerenciarTimes.removeChild(informacoesTime);
 }
 
-function retornaInformacoesTime() {
-  const gerenciarTimes = document.getElementById("gerenciarTimes");
-  let newHtml = `<div id="informacoesTime">
-  <div class="topoBotoes">
-    <button
-      class="buttonSair bi bi-x-lg"
-      onclick="sairInfoTime()"
-    ></button>
-  </div>
-  <p>testando</p>
-  <div id="informacoesGeraisTime">
-    <div id="conteinerEscudo">
-      <img src="img/OIG1.jpeg" alt="" />
-      <button id="editaEscudo" class="bi bi-brush-fill" onclick="retornaEditaEscudoTime()"></button>
-    </div>
-    <div id="textos">
-      <div id="abreviacao">
-        <p>Abreviação do time:</p>
-        <p>T03</p>
-      </div>
-      <div id="listaParticipantes">
-        <p>Nome dos participantes:</p>
-        <ul>
-          <li>cristofiano</li>
-          <li>jogador01</li>
-          <li>hope</li>
-          <li>teste01</li>
-          <li>Codigo com erro</li>
-        </ul>
-      </div>
-      <div id="vitorias">
-        <div>
-          <p>Vitórias em partidas:</p>
-          <p>8</p>
-        </div>
-        <div>
-          <p>Vitorias em maratonas:</p>
-          <p>2</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="botoesTime">
-    <button class="botaoexcluir bi bi-trash-fill">excluir time</button>
-    <button class="botaoeditar" onclick="retornaPagEditaTime()">editar informações</button>
-  </div>
-</div>`;
+function retornaPagGerenciarTimes() {
+  let global = document.getElementById("global");
 
-  gerenciarTimes.innerHTML += newHtml;
+  // Fazendo uma requisição AJAX para obter os dados dos times
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const times = JSON.parse(xhr.responseText);
+        let newHtml = `
+          <div id="gerenciarTimes">
+            <div id="homeEPesquisa">
+              <button class="home bi bi-house-door-fill" onclick="retornaPagPrincipal()">home</button>
+              <div id="pesquisa">
+                <input type="text" id="inputPesquisa" placeholder="pesquisa" />
+                <button class="bi bi-search" onclick="pesquisarTime()"></button>
+              </div>
+              <button class="bi bi-arrow-counterclockwise" id="refazer" onclick="retornaPagGerenciarTimes()"></button>
+            </div>
+            <div id="meusTimes">
+        `;
+        times.forEach(time => {
+          newHtml += `
+            <div class="meuTime" onclick="retornaInformacoesTime()">
+              <div>
+                <img src="${time.escudo}" alt="" />
+                <p class="nomeTime">${time.nome}</p>
+              </div>
+              <p>${time.participantes.length}</p>
+            </div>
+          `;
+        });
+        newHtml += `
+            </div>
+          </div>
+        `;
+        global.innerHTML = newHtml;
+      } else {
+        console.error('Ocorreu um erro ao obter os times. Status:', xhr.status);
+      }
+    }
+  };
+
+  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_times.php');
+  xhr.send();
 }
+
 
 function retornaPagGerenciarTimes() {
   let global = document.getElementById("global");
