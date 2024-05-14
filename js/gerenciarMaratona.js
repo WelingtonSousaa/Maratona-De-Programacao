@@ -78,48 +78,52 @@ function informacoesMaratona() {
 
 function retornaPagGerenciarMaratona() {
   let global = document.getElementById("global");
-  let newHtml = ` <div id="gerenciarMaratona">
-  <div id="homeEPesquisa">
-    <button class="home bi bi-house-door-fill" onclick="retornaPagPrincipal()">home</button>
-    <div id="pesquisa">
-      <input type="text" id="inputPesquisa" placeholder="pesquisa" />
-      <button class="bi bi-search" onclick="pesquisarMaratona()"></button>
-    </div>
-    <button class="bi bi-arrow-counterclockwise" id="refazer" onclick="retornaPagGerenciarMaratona()"></button>
-  </div>
-  <div id="informa">
-    <p>nome</p>
-    <p>quantidade de times</p>
-  </div>
-  <div id="minhasMaratonas">
-    <div class="minhaMaratona" onclick="informacoesMaratona()">
-      <p class="nomeMaratona">maracasTeste</p>
-      <p class="quantTimes">4</p>
-    </div>
 
-    <div class="minhaMaratona" onclick="informacoesMaratona()">
-      <p class="nomeMaratona">TesteMaracas01</p>
-      <p class="quantTimes">8</p>
-    </div>
+  // Fazendo uma requisição AJAX para obter os dados das maratonas
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const maratonas = JSON.parse(xhr.responseText);
+        let maratonasHtml = '';
+        maratonas.forEach(maratona => {
+          maratonasHtml += `
+            <div class="minhaMaratona" onclick="informacoesMaratona()">
+              <p class="nomeMaratona">${maratona.nome}</p>
+              <p class="quantTimes">${maratona.participantes.length}</p>
+            </div>
+          `;
+        });
 
-    <div class="minhaMaratona" onclick="informacoesMaratona()">
-      <p class="nomeMaratona">the end</p>
-      <p class="quantTimes">6</p>
-    </div>
+        let newHtml = ` <div id="gerenciarMaratona">
+          <div id="homeEPesquisa">
+            <button class="home bi bi-house-door-fill" onclick="retornaPagPrincipal()">home</button>
+            <div id="pesquisa">
+              <input type="text" id="inputPesquisa" placeholder="pesquisa" />
+              <button class="bi bi-search" onclick="pesquisarMaratona()"></button>
+            </div>
+            <button class="bi bi-arrow-counterclockwise" id="refazer" onclick="retornaPagGerenciarMaratona()"></button>
+          </div>
+          <div id="informa">
+            <p>nome</p>
+            <p>quantidade de times</p>
+          </div>
+          <div id="minhasMaratonas">
+            ${maratonasHtml}
+          </div>
+        </div>`;
 
-    <div class="minhaMaratona" onclick="informacoesMaratona()">
-      <p class="nomeMaratona">ufc Code</p>
-      <p class="quantTimes">5</p>
-    </div>
+        global.innerHTML = newHtml;
+      } else {
+        console.error('Ocorreu um erro ao obter as maratonas. Status:', xhr.status);
+      }
+    }
+  };
 
-    <div class="minhaMaratona" onclick="informacoesMaratona()">
-      <p class="nomeMaratona">maracasTeste</p>
-      <p class="quantTimes">4</p>
-    </div>
-  </div>
-</div>`;
-  global.innerHTML = newHtml;
+  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_maratonas.php');
+  xhr.send();
 }
+
 
 function retornaPagEditaMaratona() {
   let informacoesMaratona = document.getElementById("informacoesMaratona");
