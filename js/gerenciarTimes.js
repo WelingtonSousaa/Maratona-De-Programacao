@@ -77,79 +77,6 @@ function retornaPagGerenciarTimes() {
   xhr.send();
 }
 
-function exibirInformacoesTime(timeId, timeNome, timeAbreviacao, participantes, escudo) {
-  const gerenciarTimes = document.getElementById("gerenciarTimes");
-  let newHtml = `<div id="informacoesTime">
-    <div class="topoBotoes">
-      <button
-        class="buttonSair bi bi-x-lg"
-        onclick="sairInfoTime()"
-      ></button>
-    </div>
-    <p>${timeNome}<p>
-    <div id="informacoesGeraisTime">
-      <div id="conteinerEscudo">
-        <img src="${escudo}" alt="${timeNome}" />
-        <button id="editaEscudo" class="bi bi-brush-fill" onclick="retornaEditaEscudoTime(${timeId})"></button>
-      </div>
-      <div id="textos">
-        <div id="abreviacao">
-          <p>Abreviação do time:</p>
-          <p>${timeAbreviacao}</p>
-        </div>
-        <div id="nomeTime"> <!-- Adicionei uma div para o nome do time -->
-          <p>Nome do time:</p>
-          <p>${timeNome}</p>
-        </div>
-        <div id="listaParticipantes">
-          <p>Nome dos participantes:</p>
-          <ul id="listaNomesParticipantes"></ul>
-        </div>
-        <div id="vitorias">
-          <div>
-            <p>Vitórias em partidas:</p>
-            <p>8</p>
-          </div>
-          <div>
-            <p>Vitorias em maratonas:</p>
-            <p>2</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="botoesTime">
-      <button class="botaoexcluir bi bi-trash-fill" onclick="excluirTime(${timeId})">excluir time</button>
-      <button class="botaoeditar" onclick="retornaPagEditaTime(${timeId}, '${timeNome}', '${timeAbreviacao}')">editar informações</button>
-    </div>
-  </div>`;
-
-  gerenciarTimes.innerHTML += newHtml;
-
-  // Realiza uma requisição AJAX para buscar os nomes dos participantes
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        const usuarios = JSON.parse(xhr.responseText);
-        const listaNomesParticipantes = document.getElementById("listaNomesParticipantes");
-        participantes.forEach(participanteId => {
-          const participante = usuarios.find(usuario => usuario.id === participanteId);
-          if (participante) {
-            const nomeParticipante = participante.nome_completo;
-            const li = document.createElement("li");
-            li.textContent = nomeParticipante;
-            listaNomesParticipantes.appendChild(li);
-          }
-        });
-      } else {
-        console.error('Erro ao buscar os nomes dos participantes:', xhr.status);
-      }
-    }
-  };
-  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_usuarios.php');
-  xhr.send();
-}
-
 
 function verificaEdicao(event) {
   event.preventDefault();
@@ -220,7 +147,7 @@ function retornaInformacoesTime(timeId, timeNome, timeAbreviacao, participantes,
       </div>
     </div>
     <div id="botoesTime">
-      <button class="botaoexcluir bi bi-trash-fill">excluir time</button>
+    <button class="botaoexcluir" onclick="excluirTime(${timeId})">excluir time</button>
       <button class="botaoeditar" onclick="retornaPagEditaTime(${timeId}, '${timeNome}', '${timeAbreviacao}')">editar informações</button>
     </div>
   </div>`;
@@ -252,7 +179,7 @@ function retornaInformacoesTime(timeId, timeNome, timeAbreviacao, participantes,
   xhr.send();
 }
 function retornaPagEditaTime(timeId, timeNome, timeAbreviacao) {
-  const gerenciarTimes = document.getElementById("gerenciarTimes");
+  const gerenciarTimes = document.getElementById("informacoesTime");
   let newHtml = `<div id="editarTime">
   <div class="topoBotoes">
   <button
@@ -400,20 +327,28 @@ function excluirTime(timeId) {
           // Time excluído com sucesso
           console.log("Resposta do servidor:", xhr.responseText);
           // Remover o elemento HTML do time após excluí-lo do banco de dados
-          const informacoesTime = document.getElementById("informacoesTime");
+          const informacoesTime = document.getElementById(`informacoesTime${timeId}`);
           console.log("Elemento HTML do time:", informacoesTime);
           if (informacoesTime) {
             informacoesTime.remove();
+              // Adiciona feedback visual para o usuário
+            alert("Time excluído com sucesso!");
+          } else {
+            console.error("Elemento HTML do time não encontrado.");
           }
         } else {
           // Erro ao excluir o time
           console.error('Erro ao excluir o time:', xhr.status);
+          // Adiciona feedback visual para o usuário
+          alert("Erro ao excluir o time. Por favor, tente novamente mais tarde.");
         }
       }
     };
+
     xhr.open("POST", "http://localhost/projeto/assets/php/excluir_time.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(`time_id=${timeId}`);
+
+    retornaPagGerenciarTimes();
   }
 }
-
