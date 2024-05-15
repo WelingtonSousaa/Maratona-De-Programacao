@@ -36,8 +36,8 @@ function concluirCriacaoTime() {
     dataType: "json",
     success: function (result) {
       // Exibe uma mensagem de sucesso
+      usuarioLogado=""
       alert(`Time "${nome}" foi criado com sucesso!`);
-
       // Esvazia as variáveis
       usuariosSelecionados = [];
       nomeEquipe = "";

@@ -87,12 +87,16 @@ function retornaPagGerenciarMaratona() {
         const maratonas = JSON.parse(xhr.responseText);
         let maratonasHtml = '';
         maratonas.forEach(maratona => {
+          // Calcula a quantidade de times em cada maratona
+          const quantidadeTimes = maratona.times.split(',').length;
+
           maratonasHtml += `
-            <div class="minhaMaratona" onclick="informacoesMaratona()">
-              <p class="nomeMaratona">${maratona.nome}</p>
-              <p class="quantTimes">${maratona.participantes.length}</p>
+            <div class="minhaMaratona" onclick="informacoesMaratona(${maratona.ID}); selecionarMaratona(this);">
+              <p class="nomeMaratona">${maratona.Nome}</p>
+              <p class="quantTimes">${quantidadeTimes}</p>
             </div>
           `;
+          console.log(quantidadeTimes);
         });
 
         let newHtml = ` <div id="gerenciarMaratona">
@@ -123,7 +127,6 @@ function retornaPagGerenciarMaratona() {
   xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_maratonas.php');
   xhr.send();
 }
-
 
 function retornaPagEditaMaratona() {
   let informacoesMaratona = document.getElementById("informacoesMaratona");
@@ -193,3 +196,4 @@ function sairEdicaoMaratona() {
 
   informacoesMaratona.removeChild(editarMaratona);
 }
+
