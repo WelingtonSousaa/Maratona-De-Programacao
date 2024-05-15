@@ -351,4 +351,4 @@ function excluirTime(timeId) {
 
     retornaPagGerenciarTimes();
   }
-}
+} 

@@ -25,55 +25,80 @@ function pesquisarMaratona() {
      </div>`;
   }
 }
+
+function exibirInformacoesMaratona(maratona) {
+  let gerenciarMaratona = document.getElementById("gerenciarMaratona");
+  let newHtml = `
+  <div id="informacoesMaratona">
+    <div class="topoBotoes">
+      <button class="buttonSair bi bi-x-lg" onclick="sairInfoMaratona()"></button>
+    </div>
+    <div id="conteinerNome">
+      <p>${maratona.Nome}</p>
+    </div>
+    <div id="informacoesGeraisMaratona">
+      <div>
+        <p>Premiação:</p>
+        <p class="texto">${maratona.Premiacao}</p>
+      </div>
+      <div>
+        <p>Tempo por partida:</p>
+        <p class="texto">${maratona.TempoPartidas} min</p>
+      </div>
+      <div>
+        <p>Descrição da maratona:</p>
+        <p class="texto">${maratona.Descricao}</p>
+      </div>
+      <div id="listaTimes">
+        <p>Nome das equipes participantes:</p>
+        <ul>
+        ${maratona.times.split(',').map(time => `<li>${time.trim()}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+    <div id="botoesMaratona">
+      <button class="botaoMaratona">Iniciar Maratona</button>
+      <button class="botaoeditar" onclick="retornaPagEditaMaratona(${maratona.ID})">editar informações</button>
+    </div>
+  </div>`;
+
+  gerenciarMaratona.innerHTML += newHtml;
+}
+
+function selecionarMaratona(maratonaID) {
+  const id = maratonaID.getAttribute("data-id");
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        try {
+          const maratonas = JSON.parse(xhr.responseText);
+          if (maratonas && maratonas.length > 0) {
+            maratonas.forEach(maratona => {
+              exibirInformacoesMaratona(maratona);
+              console.log('Dados da maratona:', maratona);
+            });
+          } else {
+            console.error('Nenhuma maratona encontrada.');
+          }
+        } catch (error) {
+          console.error('Erro ao analisar os dados da maratona:', error);
+        }
+      } else {
+        console.error('Ocorreu um erro ao obter os dados da maratona. Status:', xhr.status);
+      }
+    }
+  };
+
+  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_maratonas.php');
+  xhr.send();
+}
+
+
 function sairInfoMaratona() {
   let gerenciarMaratona = document.getElementById("gerenciarMaratona");
   let informacoesMaratona = document.getElementById("informacoesMaratona");
   gerenciarMaratona.removeChild(informacoesMaratona);
-}
-
-function informacoesMaratona() {
-  let gerenciarMaratona = document.getElementById("gerenciarMaratona");
-  let newHtml = `<div id="informacoesMaratona">
-<div class="topoBotoes">
-  <button class="buttonSair bi bi-x-lg" onclick="sairInfoMaratona()"></button>
-</div>
-<div id="conteinerNome">
-  <p>maracasTeste</p>
-</div>
-<div id="informacoesGeraisMaratona">
-  <div>
-    <p>premiação:</p>
-    <p class="texto">5000 reais</p>
-  </div>
-  <div>
-    <p>Tempo por partida:</p>
-    <p class="texto">10 min</p>
-  </div>
-  <div>
-    <p>Descrição da maratona:</p>
-    <p class="texto">
-      Nessa maratonas os competidores iram testa o mais novo sistema de
-      gerenciamento de maratonas
-    </p>
-  </div>
-  <div id="listaTimes">
-    <p>Nome das equipes participantes:</p>
-    <ul>
-    <li>time número 1</li>
-    <li>capivaras do sertão</li>
-    <li>time007</li>
-    <li>jurubebas</li>
-    <li>Codigo com erro</li>
-    </ul>
-  </div>
-</div>
-<div id="botoesMaratona">
-  <button class="botaoMaratona">Iniciar Maratona</button>
-  <button class="botaoeditar" onclick="retornaPagEditaMaratona()">editar informações</button>
-</div>
-</div>`;
-
-  gerenciarMaratona.innerHTML += newHtml;
 }
 
 function retornaPagGerenciarMaratona() {
@@ -91,12 +116,11 @@ function retornaPagGerenciarMaratona() {
           const quantidadeTimes = maratona.times.split(',').length;
 
           maratonasHtml += `
-            <div class="minhaMaratona" onclick="informacoesMaratona(${maratona.ID}); selecionarMaratona(this);">
-              <p class="nomeMaratona">${maratona.Nome}</p>
-              <p class="quantTimes">${quantidadeTimes}</p>
-            </div>
-          `;
-          console.log(quantidadeTimes);
+  <div class="minhaMaratona" data-id="${maratona.ID}" onclick="selecionarMaratona(this);">
+    <p class="nomeMaratona">${maratona.Nome}</p>
+    <p class="quantTimes">${quantidadeTimes}</p>
+  </div>
+`;
         });
 
         let newHtml = ` <div id="gerenciarMaratona">
@@ -124,11 +148,13 @@ function retornaPagGerenciarMaratona() {
     }
   };
 
-  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_maratonas.php');
+  xhr.open('GET', 'http://localhost/projeto/assets/php/requisicao_maratonas.php'); // Arquivo local simulando resposta do banco de dados
   xhr.send();
 }
 
-function retornaPagEditaMaratona() {
+
+function retornaPagEditaMaratona(idMaratona) {
+  console.log('ID da Maratona:', idMaratona);
   let informacoesMaratona = document.getElementById("informacoesMaratona");
   let newHtml = `<div id="editarMaratona">
   <div class="topoBotoes">
@@ -155,12 +181,13 @@ function retornaPagEditaMaratona() {
       <label for="NovoTempo">Novo tempo das partidas:</label>
       <input type="Number" name="NovaTempo" id="inputNovoTempo" min="0" />
     </div>
-    <button onclick="verificaEdicaoMaratona(event)">Editar</button>
+    <button onclick="salvarEdicaoMaratona(${idMaratona})">Editar</button>
   </form>
 </div>`;
 
   informacoesMaratona.innerHTML += newHtml;
 }
+
 
 function verificaEdicaoMaratona(event) {
   event.preventDefault();
@@ -197,3 +224,48 @@ function sairEdicaoMaratona() {
   informacoesMaratona.removeChild(editarMaratona);
 }
 
+function salvarEdicaoMaratona(idMaratona) {
+  // Obter os valores dos campos de edição
+  const novoNome = document.getElementById("inputNovoNomeMaratona").value;
+  const novaDescricao = document.getElementById("inputNovaDescricao").value;
+  const novaPremiacao = document.getElementById("inputNovaPremiacao").value;
+  const novoTempo = document.getElementById("inputNovoTempo").value;
+
+  // Verificar se todos os campos estão preenchidos
+  if (!novoNome || !novaDescricao || !novaPremiacao || !novoTempo) {
+    alert("Todos os campos devem ser preenchidos.");
+    return;
+  }
+
+  // Montar o objeto com os dados da edição
+  const dadosEdicao = {
+    id: idMaratona,
+    novoNome: novoNome,
+    novaDescricao: novaDescricao,
+    novaPremiacao: novaPremiacao,
+    novoTempo: novoTempo
+  };
+
+  // Enviar os dados para o servidor via AJAX
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Exibir mensagem de sucesso
+        alert(xhr.responseText);
+        // Atualizar a página para refletir as alterações
+        retornaPagGerenciarMaratona();
+      } else {
+        // Exibir mensagem de erro
+        alert('Erro ao salvar as alterações.');
+      }
+    }
+  };
+
+  xhr.open('POST', 'http://localhost/projeto/assets/php/atualizar_maratona.php');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(dadosEdicao));
+
+  // Adiciona console.log para verificar no terminal
+  console.log('Dados da edição:', dadosEdicao);
+}
