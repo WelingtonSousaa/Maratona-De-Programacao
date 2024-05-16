@@ -49,6 +49,10 @@ function retornaPagGerenciarTimes() {
               </div>
               <button class="bi bi-arrow-counterclockwise" id="refazer" onclick="retornaPagGerenciarTimes()"></button>
             </div>
+            <div id="informa">
+            <p>nome</p>
+            <p>quantidade de times</p>
+          </div>
             <div id="meusTimes">
         `;
         times.forEach(time => {

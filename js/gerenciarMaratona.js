@@ -1,3 +1,5 @@
+// Outros scripts
+
 function pesquisarMaratona() {
   const inputPesquisa = document.getElementById("inputPesquisa");
   const valorInput = inputPesquisa.value.toLowerCase();
@@ -73,13 +75,12 @@ function selecionarMaratona(maratonaID) {
       if (xhr.status === 200) {
         try {
           const maratonas = JSON.parse(xhr.responseText);
-          if (maratonas && maratonas.length > 0) {
-            maratonas.forEach(maratona => {
-              exibirInformacoesMaratona(maratona);
-              console.log('Dados da maratona:', maratona);
-            });
+          const maratonaSelecionada = maratonas.find(maratona => maratona.ID === parseInt(id));
+          if (maratonaSelecionada) {
+            exibirInformacoesMaratona(maratonaSelecionada);
+            console.log('Dados da maratona:', maratonaSelecionada);
           } else {
-            console.error('Nenhuma maratona encontrada.');
+            console.error('Maratona não encontrada.');
           }
         } catch (error) {
           console.error('Erro ao analisar os dados da maratona:', error);
@@ -95,11 +96,13 @@ function selecionarMaratona(maratonaID) {
 }
 
 
+
 function sairInfoMaratona() {
   let gerenciarMaratona = document.getElementById("gerenciarMaratona");
   let informacoesMaratona = document.getElementById("informacoesMaratona");
   gerenciarMaratona.removeChild(informacoesMaratona);
 }
+
 
 function retornaPagGerenciarMaratona() {
   let global = document.getElementById("global");
@@ -188,36 +191,13 @@ function retornaPagEditaMaratona(idMaratona) {
   informacoesMaratona.innerHTML += newHtml;
 }
 
-
-function verificaEdicaoMaratona(event) {
-  event.preventDefault();
-  let inputNovoNomeMaratona = document.getElementById("inputNovoNomeMaratona");
-  let inputNovaDescricao = document.getElementById("inputNovaDescricao");
-  let inputNovaPremiacao = document.getElementById("inputNovaPremiacao");
-  let inputNovoTempo = document.getElementById("inputNovoTempo");
-
-  if (
-    inputNovoNomeMaratona.value === "" ||
-    inputNovaDescricao.value === "" ||
-    inputNovaPremiacao.value === "" ||
-    inputNovoTempo.value === "" ||
-    inputNovoTempo.value <= 0
-  ) {
-    alert(
-      "A edição apresenta campos vazios ou erros no preenchimento, por favor preencha todos os campos"
-    );
-  } else {
-    let resposta = confirm(
-      `Você realmente deseja fazer essas alterações na maratona?`
-    );
-
-    if (resposta) {
-      alert(`Informações do time alteradas com sucesso`);
-      retornaPagGerenciarMaratona();
-    }
-  }
-}
 function sairEdicaoMaratona() {
+  // Limpa os campos de entrada
+  document.getElementById("inputNovoNomeMaratona").value = "";
+  document.getElementById("inputNovaDescricao").value = "";
+  document.getElementById("inputNovaPremiacao").value = "";
+  document.getElementById("inputNovoTempo").value = "";
+
   let informacoesMaratona = document.getElementById("informacoesMaratona");
   let editarMaratona = document.getElementById("editarMaratona");
 

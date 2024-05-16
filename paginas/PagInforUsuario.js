@@ -3,6 +3,7 @@ let senha = "senha1234";
 let nomeCompleto = "nome padrão completo ";
 let imgUsuario = "avatars/1.svg";
 
+
 function sair(num) {
   let containerUsuario = document.getElementById("conteinerUsuario");
   if (num === 1) {
@@ -17,6 +18,7 @@ function sair(num) {
 }
 
 function retornaEditaNomeUsuario() {
+  
   let containerUsuario = document.getElementById("conteinerUsuario");
 
   let NewHtml = `<div id="editorUserName" class="edicao">
@@ -78,6 +80,11 @@ function retornaEditaNomeCompleto() {
   containerUsuario.innerHTML += NewHtml;
 }
 function redefinirNomeCompleto() {
+  if (username != null){
+    console.log('1');
+  }else{
+    console.log('2');
+  }
   let inputNomeCompleto = document.getElementById("inputNomeCompleto").value;
   let NomeCompleto = document.getElementById("nomeCompleto");
   nomeCompleto = inputNomeCompleto;

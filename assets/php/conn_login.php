@@ -25,10 +25,11 @@ if ($result->num_rows > 0) {
     // Autenticação bem-sucedida
     session_start(); // Inicia a sessão
     $_SESSION['authenticated'] = true; // Define uma variável de sessão para indicar autenticação
+    $_SESSION['username'] = $nome_usuario; // Armazena o nome de usuário na sessão
     echo json_encode(array('success' => true));
 } else {
     echo json_encode(array('success' => false));
 }
 
 $conn->close();
-?>
+?> 
