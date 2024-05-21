@@ -1,73 +1,101 @@
+:root {
+  --primary-color: #02084B;
+  --secondary-color: #FF9F00;
+  --text-color: #ffffff;
+  --hover-scale: 1.1;
+  --border-radius: 2rem;
+  --padding: 2rem;
+}
+
 #boasVindas {
   margin-top: 2rem;
   text-align: center;
   font-size: 4rem;
-  color: black;
+  color: var(--primary-color);
 }
+
 #conteiner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80rem;
-  height: 20rem;
-  border-radius: 2rem;
-  padding: 2rem 2rem 2rem 2rem;
-  color: white;
-  background-color: #02084B;
-  margin: auto;
-  & > p {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    text-align: center;
-  }
+  width: 80%;
+  max-width: 80rem;
+  height: auto;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  margin: 2rem auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
+
+#conteiner > p {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
 #conteinerBotoes {
   display: flex;
   gap: 2rem;
   justify-content: center;
-  & > button {
-    cursor: pointer;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 0.7rem;
-    border-radius: 2rem;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-  & > button:nth-child(1) {
-    background-color: #FF9F00;
-  }
+  margin-top: 2rem;
 }
+
+#conteinerBotoes > button {
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#conteinerBotoes > button:hover {
+  transform: scale(var(--hover-scale));
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 h2 {
   text-align: center;
   font-size: 2rem;
   margin: 1rem;
+  color: var(--primary-color);
 }
+
 #Opcoes {
   display: flex;
   justify-content: space-between;
-  padding: 0 20rem 0 20rem;
+  padding: 0 5%;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
+
 .opcao {
-  width: 4rem;
+  width: 6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 0.3rem;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-  }
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
 
-  & > img {
-    height: 6rem;
-    width: 6rem;
-    border-radius: 1rem;
-  }
-  & > p {
-    font-size: 1rem;
-    font-weight: 600;
-  }
+.opcao:hover {
+  cursor: pointer;
+  transform: scale(var(--hover-scale));
+}
+
+.opcao > img {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.opcao > p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
 }
