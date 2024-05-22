@@ -68,7 +68,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
       <li>
         <button class="navBotoes" onclick="retornaComunidade()">
-          comunidade
+          Comunidade
         </button>
       </li>
 
@@ -111,7 +111,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         </div>
 
         <div class="opcao" onclick="retornaPagGerenciarMaratona()">
-          <img src="img/criar maratona em jpng.jpeg" alt="" />
+          <img src="img/gerenciarmara.jpg" alt="" />
           <p>Gerenciar maratonas</p>
         </div>
 
@@ -121,7 +121,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         </div>
 
         <div class="opcao" onclick="retornaPagEstatisticas()">
-          <img src="img/gerenciartime.jpeg" alt="" />
+          <img src="img/estatisticas.jpg" alt="" />
           <p>Estatísticas</p>
         </div>
       </div>
