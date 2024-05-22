@@ -129,6 +129,7 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   </div>
 
   <script src="utils.js"></script>
+  <script src="asd.js"></script>
   <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>
   <script src="js/main.js"></script>
   <script src="paginas/PagPrincipal.js"></script>
@@ -147,14 +148,27 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
         if (username !== null) {
             // Atualizar o valor do elemento oculto com o nome de usuário recuperado
             $('#hidden-username').val(username);
-            console.log("Nome de usuário recuperado:", username);
+            console.log("Usuário Logado:", username);
         } else {
             console.error("Nome de usuário não encontrado.");
         }
     });
 });
   </script>
-  
+  <script>
+    $(document).ready(function() {
+        // Chamando a função recuperarNomeUsuario com uma função de retorno de chamada
+        recuperarAvatar(function(avatar) {
+            if (avatar !== null) {
+                // Atualizar a imagem do avatar no HTML
+                $('#imgUsuario').attr('src', avatar);
+                console.log(`Avatar: ${avatar}`);
+            } else {
+                console.error("Avatar não encontrado.");
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

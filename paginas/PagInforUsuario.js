@@ -1,8 +1,3 @@
-let userName = "nome padrão usuário";
-let senha = "senha1234";
-let nomeCompleto = "nome padrão completo ";
-let imgUsuario = "avatars/1.svg";
-
 
 function sair(num) {
   let containerUsuario = document.getElementById("conteinerUsuario");
