@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Torneio de 8 Times</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="Partida.css" />
+    <link rel="stylesheet" href="probabilidade.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div id="topo" class="topo">
+      <div>
+        <div class="NomeTorneio">Torneio X</div>
+      <button id="btn-probabilidade" class="bi bi-diagram-2-fill" ></button>
+      </div>
+      <div id="div-temporizador">
+        <div class="temporizador" id="temporizador"></div>
+        </div>
+      <div id="campeao" class="campeao"></div>
+    </div>
+    <div id="conteudo">
+  
+      <div id="tela-sorteio-times"></div>
+      <div class="EscolhaTimes"></div>
+      
+      <div class="arvore" id="arvore"></div>
+      
+      </div>
+    <div id="telaCampeaoContainer"></div>
+        <div id="modal" class="modal">
+          <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div id="conteudo-modal">
+            </div>
+          </div>
+          
+        </div>
+    <div id="telaProbabilidade"></div>
+    
+    <script src="ConfigPartidas.js"></script>
+    <script src="mainComentada.js"></script>
+    <script src="segundatela.js"></script>
+    <script src="telaPropabilidade.js"></script>
+  </body>
+</html>

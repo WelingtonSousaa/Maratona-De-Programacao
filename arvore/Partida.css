@@ -1,0 +1,160 @@
+
+
+.modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 20%;
+    top: 1%;
+   width: 60rem;
+}
+
+.modal-conteudo {
+    background-color: #bbb4b4;
+    margin: auto;
+    padding: 1rem;
+    border: 2px solid #070606;
+    width: 50%;
+}
+
+.fechar {
+    color: #7a7979;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*/////////////////////////////////////////////////////////////*/
+.tela-campeao {
+      position: fixed;
+      top: 0;
+      left: 20%;
+      width: 60%;
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .conteudo-campeao {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    justify-content: space-between;
+    &>div{
+      width: 50%;
+    }
+    
+    }
+    .detalhes-time {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .detalhes-torneio {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .logo-time-camp {
+      height: 100px;
+      width: 100px;
+      border-radius: 5px;
+      display: block;
+      margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+      .nome-time{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+     .abreviacao-time {
+       font-size: 20px;
+       font-weight: bold;
+       margin-bottom: 5px;
+       color: rgb(87, 84, 84);
+     }
+    
+
+    .participantes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: left;
+      margin-top: 20px;
+        font-size: 18px;
+      font-weight: bold;
+      max-height: 26rem;
+      overflow-y: scroll;
+    }
+    .participantesT {
+      text-align: left;
+      margin-top: 20px;
+        width: 100%;
+        font-size: 18px;
+      font-weight: bold;
+      color: rgb(20, 114, 32);
+    }
+
+    .participantes ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .participantes ul ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+    .participantes li {
+      margin-bottom: 5px;
+    }
+
+    .botao-finalizar {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .botao-finalizar:hover {
+      background-color: #45a049;
+    }
+    .botaopontuacaoT{
+      height: 2rem;
+      width: 2rem;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+      &:hover{
+        background-color: #45a049;
+      }
+    }
+
+    .oculto {
+      display: none;
+    }
+    .premio{
+      font-size: 18px;
+      font-weight: bold;
+      color: rgb(184, 166, 8);
+    }

@@ -1,0 +1,38 @@
+#Probabilidades{
+    position: fixed;
+    background-color: white;
+    left: 40%;
+    top: 10%;
+    width: 20rem;
+     
+}
+#btn-probabilidade{
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 1.5rem;
+   font-size: 1.5rem;
+}
+#buttonSair{
+    float: right;
+    height: 2rem;
+    width: 3rem;
+
+}
+#texto{
+    text-align: center;
+    margin: 1rem;
+}
+#linhasTimes{
+    list-style: none;
+    margin: auto;
+    padding:1rem 2rem 2rem 2rem;
+    & > li{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.borramento{
+    background-color: rgba(56, 55, 55, 0.1); /* Preto com 50% de opacidade */
+    filter: blur(1px);
+}
